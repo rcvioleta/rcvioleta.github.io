@@ -1,0 +1,27 @@
+.nav {
+  width: 100vw;
+  margin: 0 auto 2rem auto;
+  background: purple;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem;
+  align-items: center;
+  color: #eee;
+}
+
+.logo {
+  flex-basis: 80%;
+}
+
+.about {
+  flex-basis: 10%;
+}
+
+.contact {
+  flex-basis: 10%;
+}

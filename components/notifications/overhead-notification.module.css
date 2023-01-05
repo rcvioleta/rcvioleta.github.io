@@ -1,0 +1,34 @@
+.overhead-notification {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+}
+
+.overhead-notification > div {
+  padding: 0.3rem;
+}
+
+.title {
+  flex-basis: 10%;
+  text-align: center;
+}
+
+.message {
+  flex-basis: 90%;
+
+  background: #eee;
+  color: #000;
+}
+
+.pending-main {
+  background: #2388b1;
+}
+
+.success-main {
+  background: #008000;
+}
+
+.error-main {
+  background: #e42727;
+}
