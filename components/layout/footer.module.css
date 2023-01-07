@@ -1,0 +1,72 @@
+#footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  margin-top: 5rem;
+  background-color: var(--primary);
+  color: var(--light-grey);
+  z-index: -1;
+}
+
+.flexbox {
+  display: flex;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.flexbox > div {
+  flex-basis: 50%;
+  /* border: 3px solid orange; */
+}
+
+.box-1 {
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.box-1 > div {
+  margin: 0 0.5rem;
+  /* border: 2px solid pink; */
+}
+
+.box-1 .icon {
+  flex-basis: 5%;
+  font-size: 1.5em;
+  color: var(--white);
+}
+
+.box-1 .description {
+  flex-basis: 82%;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.box-1 .description a,
+.box-1 .description a:active,
+.box-1 .description a:visited {
+  color: var(--white);
+}
+
+.box-2 {
+  text-align: left;
+  margin-left: 5rem;
+}
+
+.box-2 p {
+  margin: 2rem 0;
+  font-size: 1.2em;
+}
+
+.box-2 .icons {
+  font-size: 2em;
+}
+
+.box-2 .icons > i:not(:last-child) {
+  margin-right: 1rem;
+}
+
+#footer .copyright {
+  text-align: center;
+}

@@ -1,0 +1,29 @@
+.nav {
+  width: 100vw;
+  margin: 0 auto 2rem auto;
+  background: purple;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem;
+  color: #eee;
+}
+
+ul.nav-items {
+  margin: 0;
+  padding: 0;
+}
+
+ul.nav-items > li {
+  list-style: none;
+  display: inline-block;
+}
+
+ul.nav-items > li:not(:last-of-type) {
+  margin-right: 2rem;
+}

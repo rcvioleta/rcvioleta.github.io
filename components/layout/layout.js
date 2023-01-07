@@ -1,9 +1,10 @@
 import { Fragment, useContext } from "react";
 
-import NotificationContext from "../../store/notification-context";
+import Footer from "./footer";
+import Header from "./header";
 
+import NotificationContext from "../../store/notification-context";
 import OverheadNotification from "../notifications/overhead-notification";
-import Navigation from "./navigation";
 
 export default function Layout({ children }) {
   const notificationCtx = useContext(NotificationContext);
@@ -11,9 +12,10 @@ export default function Layout({ children }) {
 
   return (
     <Fragment>
-      <Navigation />
+      <Header />
       {notificationData && <OverheadNotification {...notificationData} />}
       <main>{children}</main>
+      <Footer />
     </Fragment>
   );
 }
