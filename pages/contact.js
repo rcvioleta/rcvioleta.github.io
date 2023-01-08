@@ -2,7 +2,7 @@ import { useContext, useRef } from "react";
 
 import NotificationContext from "../store/notification-context";
 
-import styles from "../styles/contact-form.module.css";
+import styles from "./contact.module.css";
 
 export default function Contact(props) {
   const name = useRef();
@@ -13,15 +13,15 @@ export default function Contact(props) {
 
   function sendMessageHandler() {
     notificationCtx.showNotification({
-      title: "Please wait!",
-      message: "Sending Message...",
+      // title: "Please wait!",
+      message: "Hang on! Sending your message.",
       status: "pending",
     });
 
     setTimeout(() => {
       notificationCtx.showNotification({
-        title: "Success!",
-        message: "Your message was successfully!",
+        // title: "Success!",
+        message: "Success! Message sent!",
         status: "success",
       });
 

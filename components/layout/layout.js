@@ -4,7 +4,7 @@ import Footer from "./footer";
 import Header from "./header";
 
 import NotificationContext from "../../store/notification-context";
-import OverheadNotification from "../notifications/overhead-notification";
+import OverlayNotification from "../notifications/overlay-notification";
 
 export default function Layout({ children }) {
   const notificationCtx = useContext(NotificationContext);
@@ -13,7 +13,7 @@ export default function Layout({ children }) {
   return (
     <Fragment>
       <Header />
-      {notificationData && <OverheadNotification {...notificationData} />}
+      {notificationData && <OverlayNotification {...notificationData} />}
       <main>{children}</main>
       <Footer />
     </Fragment>

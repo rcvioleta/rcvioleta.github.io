@@ -1,0 +1,42 @@
+#content {
+  width: 100%;
+  max-width: 1600px;
+  min-height: 100vh;
+  padding: 0 150px;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+#greetings {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
+}
+
+#name,
+#pitch {
+  font-size: 3.5em;
+}
+
+#pitch {
+  color: var(--main-text-color);
+}
+
+#pitch-subtext {
+  font-size: 1.2em;
+  margin-top: 1rem;
+  max-width: 540px;
+}
+
+#about__title,
+#about__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}

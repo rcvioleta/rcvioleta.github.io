@@ -1,0 +1,22 @@
+.overlay-notification {
+  position: absolute;
+  top: 7rem;
+  right: 1.2rem;
+  width: auto;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.pending {
+  background: #2388b1;
+  color: #000;
+}
+
+.success {
+  background: #008000;
+}
+
+.error {
+  background: #e42727;
+}

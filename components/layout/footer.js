@@ -54,9 +54,8 @@ export default function Footer() {
 
       <div className={styles.copyright}>
         <Link href="/">
-          <h2>RovioTech</h2>
+          <p>Designed & Built by</p> <h2>Rogene Cris Violeta</h2>
         </Link>
-        <p>Copyright 2019 | All Rights Reserved</p>
       </div>
     </footer>
   );
