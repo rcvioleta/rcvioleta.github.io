@@ -36,7 +36,7 @@ export default function Home() {
 
     const myTimeout = setTimeout(() => {
       clearInterval(myInterval);
-    }, delay * text.length);
+    }, delay * text.length + 2000);
 
     return () => {
       clearTimeout(myTimeout);

@@ -14,10 +14,8 @@ export default function Header(props) {
       if (this.scrollY <= 0) {
         navContainer.parentNode.setAttribute("class", styles.header);
       } else if (this.oldScroll < this.scrollY) {
-        console.log("scrolling down...");
         navContainer.parentNode.removeAttribute("class");
       } else {
-        console.log("scrolling up...");
         navContainer.parentNode.setAttribute(
           "class",
           styles["header__scroll-up"]
@@ -25,7 +23,18 @@ export default function Header(props) {
       }
       this.oldScroll = this.scrollY;
     };
+
+    const mobileMenuEl = document.querySelector('[id*="mobile-menu"]');
+    mobileMenuEl.addEventListener("click", mobileMenuClickHandler);
+
+    return () => {
+      mobileMenuEl.removeEventListener("click", mobileMenuClickHandler);
+    };
   }, []);
+
+  function mobileMenuClickHandler(evt) {
+    evt.target.classList.toggle("hidden");
+  }
 
   return (
     <header className={styles.header}>
@@ -53,11 +62,28 @@ export default function Header(props) {
             </Link>
           </li>
           <li>
-            <Link href="/contact">
+            <Link href="/resume">
               <h3 className="transparent-btn">Resume</h3>
             </Link>
           </li>
         </ul>
+
+        <div id={styles["mobile-menu"]}>
+          <button id={styles["mobile-menu-button"]}>
+            <div className={styles["menu-stripes-container"]}>
+              <div className={styles["menu-stripes"]}></div>
+            </div>
+          </button>
+
+          <aside>
+            <ul>
+              <li>About</li>
+              <li>Work/Experience</li>
+              <li>Contact</li>
+              <li>Resume</li>
+            </ul>
+          </aside>
+        </div>
       </div>
     </header>
   );
