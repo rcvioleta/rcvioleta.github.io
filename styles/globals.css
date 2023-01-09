@@ -53,7 +53,7 @@
   animation-duration: 1s;
   display: inline-block;
   width: clamp(3px, 0.7vw, 5px);
-  height: clamp(16px, 3vw, 25px);
+  height: clamp(24px, 4vw, 45px);
   margin-left: 3px;
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(white, 0.3);
@@ -82,6 +82,7 @@ h6 {
 
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 .transparent-btn {
@@ -90,7 +91,7 @@ html {
   color: var(--main-text-color);
   border: 1px solid var(--main-text-color);
   font-weight: bold;
-  font-size: 0.7em;
+  font-size: clamp(0.7em, 8vw, 1.1em);
 }
 
 .transparent-btn:hover {

@@ -52,7 +52,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id={styles.content}>
-        <div id={styles.hero}>
+        <section id={styles.hero}>
           <div>
             <h3 id={styles.greetings}></h3>
           </div>
@@ -77,10 +77,10 @@ export default function Home() {
               Contact Me
             </a>
           </div>
-        </div>
+        </section>
 
         <section id={styles.about}>
-          <h2 id={styles["about__title"]}>About Me</h2>
+          <h1 id={styles["about__title"]}>About Me</h1>
           <div id={styles["about__content"]}>
             <div>
               <p>
@@ -112,15 +112,18 @@ export default function Home() {
                 <li>WordPress</li>
               </ul>
             </div>
-            <div id="profile-picture">
-              <Image
-                src={
-                  "https://www.poltera.ac.id/wp-content/uploads/learn-press-profile/4/172522ec1028ab781d9dfd17eaca4427.jpg"
-                }
-                alt="Profile Picture"
-                width={350}
-                height={350}
-              />
+            <div className={styles["profile-picture__container"]}>
+              <div className={styles["profile-picture__wrapper"]}>
+                <Image
+                  src={
+                    "https://www.poltera.ac.id/wp-content/uploads/learn-press-profile/4/172522ec1028ab781d9dfd17eaca4427.jpg"
+                  }
+                  className={styles["profile-picture__image"]}
+                  alt="Profile Picture"
+                  width={300}
+                  height={300}
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -142,6 +145,29 @@ export default function Home() {
             <span className="custom-text">node js</span>
             on the back-end.
           </p>
+        </section>
+
+        <section id="contact">
+          <h1>Get In Touch!</h1>
+          <p>You can contact me at:</p>
+
+          <div className={styles.icon}>
+            <i className="fas fa-phone-square"></i>
+          </div>
+          <div className={styles.description}>
+            <span className={styles["bold-text"]}>
+              <a href="tel:+639098111780">+63 909-8111-780</a>
+            </span>
+          </div>
+
+          <div className={styles.icon}>
+            <i className="fas fa-envelope"></i>
+          </div>
+          <div className={styles.description}>
+            <span className={styles["bold-text"]}>
+              <a href="mailto:rcvioleta13@gmail.com">rcvioleta13@gmail.com</a>
+            </span>
+          </div>
         </section>
       </div>
     </>

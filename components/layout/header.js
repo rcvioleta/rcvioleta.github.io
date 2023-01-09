@@ -36,6 +36,10 @@ export default function Header(props) {
     evt.target.classList.toggle("hidden");
   }
 
+  function contactClickHandler(evt) {
+    document.querySelector('header[class*="header"]').removeAttribute("class");
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles["nav-container"]}>
@@ -57,9 +61,9 @@ export default function Header(props) {
             </Link>
           </li>
           <li>
-            <Link href="/contact">
+            <a href="#contact" onClick={contactClickHandler}>
               <h3>Contact</h3>
-            </Link>
+            </a>
           </li>
           <li>
             <Link href="/resume">

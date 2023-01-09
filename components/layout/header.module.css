@@ -51,15 +51,10 @@
   width: 100%;
   padding: 1rem;
   color: #eee;
-  font-size: 0.6em;
 }
 
 .nav-container a:hover {
   color: var(--main-text-color);
-}
-
-.nav-items a[href*="resume"] > h3 {
-  font-size: 1em !important;
 }
 
 ul.nav-items {
