@@ -1,0 +1,49 @@
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#greetings {
+  font-size: clamp(14px, 8vw, 16px);
+  margin-bottom: 1rem;
+}
+
+#name,
+#pitch {
+  font-size: clamp(40px, 6.5vw, 70px);
+}
+
+#pitch {
+  color: var(--main-text-color);
+}
+
+#pitch-subtext {
+  font-size: 1.2em;
+  margin-top: 1.5rem;
+  max-width: 440px;
+}
+
+/* 900 - 1200px tablet landscape */
+@media (max-width: 75em) {
+}
+
+/* 600 - 900px tablet portrait */
+@media (max-width: 56.25em) {
+}
+
+/* 0 - 600px phone */
+@media (max-width: 37.5em) {
+  #greetings {
+    margin-bottom: 1rem;
+  }
+
+  #pitch-subtext {
+    font-size: 1.2em;
+  }
+}

@@ -6,150 +6,20 @@
   margin: 0 auto;
 }
 
-#hero {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-height: 100vh;
-  height: 100vh;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-#greetings {
-  font-size: clamp(14px, 8vw, 16px);
-  margin-bottom: 1rem;
-}
-
-#name,
-#pitch {
-  font-size: clamp(40px, 6.5vw, 70px);
-}
-
-#pitch {
-  color: var(--main-text-color);
-}
-
-#pitch-subtext {
-  font-size: 1.2em;
-  margin-top: 1.5rem;
-  max-width: 440px;
-}
-
-#about {
-  margin: auto 5rem;
-  padding: 5rem 0;
-}
-
-#about__title {
-  display: flex;
-  width: 100%;
-  white-space: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 2rem;
-  font-size: clamp(1.2em, 5vw, 1.5em);
-}
-
-#about__title::after {
-  content: "";
-  width: 300px;
-  height: 1px;
-  margin-left: 1.5rem;
-  background: var(--main-text-color);
-}
-
-#about__content {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 50px;
-}
-
-#about__content > div > p {
-  margin-bottom: 1rem;
-  font-size: clamp(1.1em, 5vw, 1.2em);
-}
-
-.profile-picture__image {
-  object-fit: contain;
-  width: 300px !important;
-  position: relative !important;
-  height: unset !important;
-  border-radius: 5px;
-}
-
-.profile-picture__container {
-  position: relative;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.profile-picture__wrapper {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-
-.profile-picture__wrapper::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 15px;
-  left: 20px;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  border: 2px solid var(--main-text-color);
-  border-radius: 5px;
-}
-
 /* 900 - 1200px tablet landscape */
 @media (max-width: 75em) {
   #content {
     padding: 0 80px;
   }
-
-  #about {
-    margin: 0;
-    padding: 5rem 0;
-  }
 }
 
 /* 600 - 900px tablet portrait */
 @media (max-width: 56.25em) {
-  #about__title::after {
-    width: 200px;
-  }
-
-  .profile-picture__container {
-    padding-top: 5rem;
-  }
-
-  #about__content {
-    display: block;
-  }
 }
 
 /* 0 - 600px phone */
 @media (max-width: 37.5em) {
   #content {
     padding: 0 40px;
-  }
-
-  #greetings {
-    margin-bottom: 1rem;
-  }
-
-  #pitch-subtext {
-    font-size: 1.2em;
-  }
-
-  #about__title::after {
-    width: 100%;
-  }
-
-  .profile-picture__image {
-    width: 100% !important;
   }
 }

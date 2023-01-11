@@ -10,7 +10,6 @@ export default function Header(props) {
     );
 
     window.onscroll = function () {
-      console.log("scrollY", this.scrollY);
       if (this.scrollY <= 0) {
         navContainer.parentNode.setAttribute("class", styles.header);
       } else if (this.oldScroll < this.scrollY) {

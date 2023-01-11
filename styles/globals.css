@@ -1,6 +1,7 @@
 :root {
   --main-text-color: #18cf18;
   --light-green-bg: rgba(24, 207, 24, 0.2);
+  --light-dark-green-bg: rgba(27, 133, 27, 0.2);
 
   --mobile-menu-width: 30px;
 
@@ -58,6 +59,30 @@
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(white, 0.3);
   background: #fff;
+}
+
+.section-title {
+  display: flex;
+  width: 100%;
+  white-space: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: clamp(1.2em, 5vw, 1.5em);
+}
+
+.section-title::after {
+  content: "";
+  width: 300px;
+  height: 1px;
+  margin-left: 1.5rem;
+  background: var(--main-text-color);
+}
+
+.active {
+  color: var(--main-text-color);
+  font-weight: bold;
+  border-left: 3px solid var(--main-text-color) !important;
 }
 
 @keyframes blinker {
