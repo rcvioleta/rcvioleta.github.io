@@ -31,11 +31,6 @@ ul.about__tech-stack > li::before {
   margin-right: 0.5rem;
 }
 
-#about {
-  margin: auto 5rem;
-  padding: 5rem 0;
-}
-
 #about__title {
   display: flex;
   width: 100%;
