@@ -58,13 +58,13 @@ export default function HeroSection(props) {
   return (
     <section id={styles.hero}>
       <div>
-        <h3 id={styles.greetings}></h3>
+        <h2 id={styles.greetings}></h2>
       </div>
       <div>
-        <h1 id={styles.name}></h1>
+        <h2 id={styles.name}></h2>
       </div>
       <div>
-        <h1 id={styles.pitch}></h1>
+        <h2 id={styles.pitch}></h2>
       </div>
       <div>
         <p id={styles["pitch-subtext"]}>

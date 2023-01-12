@@ -42,7 +42,7 @@ export default function AboutSection(props) {
           <div className={styles["profile-picture__wrapper"]}>
             <Image
               src={
-                "https://www.poltera.ac.id/wp-content/uploads/learn-press-profile/4/172522ec1028ab781d9dfd17eaca4427.jpg"
+                "https://s.pngkit.com/png/small/372-3729814_profile-icon-my-profile-icon-png.png"
               }
               className={styles["profile-picture__image"]}
               alt="Profile Picture"

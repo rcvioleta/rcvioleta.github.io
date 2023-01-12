@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["www.poltera.ac.id"],
+    domains: ["s.pngkit.com"],
   },
   reactStrictMode: true,
 };

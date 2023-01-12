@@ -5,28 +5,13 @@ import styles from "./header.module.css";
 
 export default function Header(props) {
   useEffect(() => {
-    const navContainer = document.querySelector(
-      '[class^="header_nav-container"]'
-    );
-
-    window.onscroll = function () {
-      if (this.scrollY <= 0) {
-        navContainer.parentNode.setAttribute("class", styles.header);
-      } else if (this.oldScroll < this.scrollY) {
-        navContainer.parentNode.removeAttribute("class");
-      } else {
-        navContainer.parentNode.setAttribute(
-          "class",
-          styles["header__scroll-up"]
-        );
-      }
-      this.oldScroll = this.scrollY;
-    };
+    window.addEventListener("scroll", pageOnScrollHandler);
 
     const mobileMenuEl = document.querySelector('[id*="mobile-menu"]');
     mobileMenuEl.addEventListener("click", mobileMenuClickHandler);
 
     return () => {
+      window.removeEventListener("scroll", pageOnScrollHandler);
       mobileMenuEl.removeEventListener("click", mobileMenuClickHandler);
     };
   }, []);
@@ -37,6 +22,24 @@ export default function Header(props) {
 
   function contactClickHandler(evt) {
     document.querySelector('header[class*="header"]').removeAttribute("class");
+  }
+
+  function pageOnScrollHandler() {
+    const navContainer = document.querySelector(
+      '[class^="header_nav-container"]'
+    );
+
+    if (this.scrollY <= 0) {
+      navContainer.parentNode.setAttribute("class", styles.header);
+    } else if (this.oldScroll < this.scrollY) {
+      navContainer.parentNode.removeAttribute("class");
+    } else {
+      navContainer.parentNode.setAttribute(
+        "class",
+        styles["header__scroll-up"]
+      );
+    }
+    this.oldScroll = this.scrollY;
   }
 
   return (

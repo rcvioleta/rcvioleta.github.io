@@ -37,7 +37,7 @@
   color: var(--main-text-color);
   border: 2px solid var(--main-text-color);
   background: rgba(0, 0, 0, 0);
-  font-size: 1.5em;
+  font-size: var(--nav-text-size);
 }
 
 .logo:hover {
@@ -65,6 +65,7 @@ ul.nav-items {
 ul.nav-items > li {
   list-style: none;
   display: inline-block;
+  font-size: var(--nav-text-size);
 }
 
 ul.nav-items > li:not(:last-of-type) {
