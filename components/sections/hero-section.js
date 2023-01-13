@@ -1,73 +1,23 @@
-import { useEffect } from "react";
+import { useTypedLetters } from "./../../hooks/useTypedLetters";
 
 import styles from "./hero-section.module.css";
 
 export default function HeroSection(props) {
-  useEffect(() => {
-    const heroContainer = document.querySelector('[id*="hero-section_hero"]');
-    heroContainer.style.paddingTop = "150px";
-
-    const greetingsEL = document.querySelector(
-      '[id^="hero-section_greetings"]'
-    );
-    const nameEL = document.querySelector('[id^="hero-section_name"]');
-    const descriptionEL = document.querySelector('[id^="hero-section_pitch"]');
-    const text =
-      "Hi, my name is Rogene Cris Violeta. I build software to make life easy!";
-    let counter = 0,
-      delay = 80;
-
-    const myInterval = setInterval(() => {
-      if (counter <= 13) {
-        greetingsEL.classList.add("cursor");
-        greetingsEL.textContent += text.charAt(counter);
-      }
-
-      if (counter >= 15 && counter <= 34) {
-        greetingsEL.classList.remove("cursor");
-        nameEL.classList.add("cursor");
-        nameEL.textContent += text.charAt(counter);
-      }
-
-      if (counter >= 36) {
-        nameEL.classList.remove("cursor");
-        descriptionEL.classList.add("cursor");
-        descriptionEL.textContent += text.charAt(counter);
-      }
-      counter++;
-    }, delay);
-
-    const myTimeout = setTimeout(() => {
-      clearInterval(myInterval);
-      heroContainer.style.paddingTop = "0";
-    }, delay * text.length + 2000);
-
-    return () => {
-      clearTimeout(myTimeout);
-      clearInterval(myInterval);
-      resetHeroText(greetingsEL, nameEL, descriptionEL);
-    };
-  }, []);
-
-  function resetHeroText(...elements) {
-    [...elements].forEach((el) => {
-      if (el.classList.contains("cursor")) {
-        el.classList.remove("cursor");
-      }
-      el.textContent = "";
-    });
-  }
+  const typedLetter = useTypedLetters();
 
   return (
     <section id={styles.hero}>
-      <div>
-        <h2 id={styles.greetings}></h2>
+      <div id={styles.greetings}>
+        <h2>Hi, my name is</h2>
       </div>
-      <div>
-        <h2 id={styles.name}></h2>
+      <div id={styles.name}>
+        <h2>Rogene Cris Violeta</h2>
       </div>
-      <div>
-        <h2 id={styles.pitch}></h2>
+      <div id={styles.pitch}>
+        <h2>
+          {typedLetter}
+          <span className="cursor"></span>
+        </h2>
       </div>
       <div>
         <p id={styles["pitch-subtext"]}>

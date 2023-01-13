@@ -10,17 +10,17 @@
   margin: 0 auto;
 }
 
-#greetings {
+#greetings h2 {
   font-size: clamp(14px, 8vw, 16px);
   margin-bottom: 1rem;
 }
 
-#name,
-#pitch {
+#name h2,
+#pitch h2 {
   font-size: clamp(10px, 7.5vw, 70px);
 }
 
-#pitch {
+#pitch h2 {
   color: var(--main-text-color);
 }
 
