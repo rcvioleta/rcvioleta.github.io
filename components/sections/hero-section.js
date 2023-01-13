@@ -4,15 +4,8 @@ import styles from "./hero-section.module.css";
 
 export default function HeroSection(props) {
   useEffect(() => {
-    window.addEventListener(
-      "touchmove",
-      (evt) => {
-        console.log("mobile scrolling...");
-        evt.preventDefault();
-        return false;
-      },
-      { passive: false } || false
-    );
+    const heroContainer = document.querySelector('[id*="hero-section_hero"]');
+    heroContainer.style.paddingTop = "150px";
 
     const greetingsEL = document.querySelector(
       '[id^="hero-section_greetings"]'
@@ -46,6 +39,7 @@ export default function HeroSection(props) {
 
     const myTimeout = setTimeout(() => {
       clearInterval(myInterval);
+      heroContainer.style.paddingTop = "0";
     }, delay * text.length + 2000);
 
     return () => {
