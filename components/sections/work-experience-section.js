@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import styles from "./work-experience-section.module.css";
 
 export default function WorkExperienceSection(props) {
   const [activeId, setActiveId] = useState("awesome-os");
-
-  useEffect(() => {}, [activeId]);
 
   function clickHandler(evt) {
     setActiveId(evt.target.dataset.id);

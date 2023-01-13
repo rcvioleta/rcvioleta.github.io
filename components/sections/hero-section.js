@@ -4,6 +4,16 @@ import styles from "./hero-section.module.css";
 
 export default function HeroSection(props) {
   useEffect(() => {
+    window.addEventListener(
+      "touchmove",
+      (evt) => {
+        console.log("mobile scrolling...");
+        evt.preventDefault();
+        return false;
+      },
+      { passive: false } || false
+    );
+
     const greetingsEL = document.querySelector(
       '[id^="hero-section_greetings"]'
     );
@@ -41,7 +51,6 @@ export default function HeroSection(props) {
     return () => {
       clearTimeout(myTimeout);
       clearInterval(myInterval);
-      descriptionEL.textContent = "";
       resetHeroText(greetingsEL, nameEL, descriptionEL);
     };
   }, []);
