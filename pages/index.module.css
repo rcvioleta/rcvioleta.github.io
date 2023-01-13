@@ -20,6 +20,6 @@
 /* 0 - 600px phone */
 @media (max-width: 37.5em) {
   #content {
-    padding: 0 40px;
+    padding: 0 25px;
   }
 }

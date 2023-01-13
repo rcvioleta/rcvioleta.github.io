@@ -16,7 +16,7 @@
 
 #name,
 #pitch {
-  font-size: clamp(40px, 8vw, 70px);
+  font-size: clamp(10px, 7.5vw, 70px);
 }
 
 #pitch {
@@ -24,9 +24,9 @@
 }
 
 #pitch-subtext {
-  font-size: 1.2em;
+  font-size: clamp(10px, 4.5vw, 1.2rem);
   margin-top: 1.5rem;
-  max-width: 440px;
+  max-width: 550px;
 }
 
 /* 900 - 1200px tablet landscape */
@@ -41,9 +41,5 @@
 @media (max-width: 37.5em) {
   #greetings {
     margin-bottom: 1rem;
-  }
-
-  #pitch-subtext {
-    font-size: 1.2em;
   }
 }

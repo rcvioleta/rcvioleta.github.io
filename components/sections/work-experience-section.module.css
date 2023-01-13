@@ -1,7 +1,7 @@
 #work-experience {
   margin: 0 auto;
   padding: 7rem 0;
-  max-width: 700px;
+  max-width: 750px;
 }
 
 .work-experience__title {
@@ -14,17 +14,14 @@
 }
 
 ul.company-list > li {
+  position: relative;
+  z-index: 3;
   width: max-content;
   list-style: none;
 }
 
-ul.company-list > li {
-  position: relative;
-  z-index: 3;
-}
-
 ul.company-list > li > a {
-  width: 170px;
+  max-width: 180px;
   border-left: 3px solid var(--light-green-bg);
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -40,7 +37,7 @@ ul.company-list > li > a:hover {
 .company-description__container {
   position: relative;
   width: 100%;
-  margin-left: 2.5rem;
+  margin-left: 2rem;
 }
 
 .company-description {
@@ -82,4 +79,26 @@ ul.company-list > li > a:hover {
 
 /* 0 - 600px phone */
 @media (max-width: 37.5em) {
+  .company-container {
+    display: block;
+  }
+
+  ul.company-list {
+    display: flex;
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  ul.company-list > li > a {
+    min-width: 180px;
+    text-align: center;
+    border-left: 0;
+    border-bottom: 3px solid var(--light-green-bg);
+    padding: 0.5rem 0;
+  }
+
+  .company-description__container {
+    margin-left: 0;
+  }
 }
