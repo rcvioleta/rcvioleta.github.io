@@ -1,4 +1,4 @@
-#about {
+.about-container {
   margin: 0 auto;
   padding: 10rem 0 7rem 0;
   max-width: 900px;
@@ -95,7 +95,7 @@ ul.about__tech-stack > li::before {
 
 /* 900 - 1200px tablet landscape */
 @media (max-width: 75em) {
-  #about {
+  .about-container {
     padding: 5rem 0;
   }
 }
@@ -109,7 +109,7 @@ ul.about__tech-stack > li::before {
 
 /* 0 - 600px phone */
 @media (max-width: 37.5em) {
-  #about {
+  .about-container {
     margin: 0;
   }
 

@@ -4,7 +4,7 @@ import styles from "./about-section.module.css";
 
 export default function AboutSection(props) {
   return (
-    <section id={styles.about}>
+    <section id="about-section" className={styles["about-container"]}>
       <h1 className="section-title">About Me</h1>
       <div id={styles["about__content"]}>
         <div>

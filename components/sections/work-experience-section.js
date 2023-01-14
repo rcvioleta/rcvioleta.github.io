@@ -10,7 +10,10 @@ export default function WorkExperienceSection(props) {
   }
 
   return (
-    <section id={styles["work-experience"]}>
+    <section
+      id="work-experience-section"
+      className={styles["work-experience-container"]}
+    >
       <h1 className="section-title">Work / Experience</h1>
       <div className={styles["company-container"]}>
         <ul className={styles["company-list"]}>
@@ -46,7 +49,7 @@ export default function WorkExperienceSection(props) {
           {activeId === "awesome-os" && (
             <div className={styles["company-description"]}>
               <h2>Team Lead @ Awesome OS</h2>
-              <div>January - June 2017</div>
+              <div>March 2020 - Present</div>
               <p className={styles["company-description__item"]}>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptates, cum alias autem similique et tenetur, rem ipsa iusto
@@ -64,18 +67,21 @@ export default function WorkExperienceSection(props) {
           {activeId === "fs" && (
             <div className={styles["company-description"]}>
               <h2>Wev Developer @ Flatworld Solution</h2>
-              <div>January - June 2017</div>
+              <div>August 2018 - February 2020</div>
               <p className={styles["company-description__item"]}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptates, cum alias autem similique et tenetur, rem ipsa iusto
-                consectetur itaque ratione. Fugit quos aliquam enim? Sint maxime
-                consectetur ipsam quasi?
+                Build responsive Front End applications for Bank sites.
               </p>
               <p className={styles["company-description__item"]}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptates, cum alias autem similique et tenetur, rem ipsa iusto
-                consectetur itaque ratione. Fugit quos aliquam enim? Sint maxime
-                consectetur ipsam quasi?
+                Develop REST API's with Laravel framework.
+              </p>
+              <p className={styles["company-description__item"]}>
+                Create maintainable, scalable and self documenting codes,
+                following DRY (do not repeat yourself) principle.
+              </p>
+              <p className={styles["company-description__item"]}>
+                Responsible for web app requirements and task/milestone
+                completions.Adapt and learn new technologies across different
+                web app requirements.
               </p>
             </div>
           )}

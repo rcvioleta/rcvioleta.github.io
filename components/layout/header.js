@@ -20,7 +20,7 @@ export default function Header(props) {
     evt.target.classList.toggle("hidden");
   }
 
-  function contactClickHandler(evt) {
+  function navItemClickHandler(evt) {
     document.querySelector('header[class*="header"]').removeAttribute("class");
   }
 
@@ -53,24 +53,24 @@ export default function Header(props) {
 
         <ul className={styles["nav-items"]}>
           <li>
-            <Link href="/about">
+            <a href="#about-section" onClick={navItemClickHandler}>
               <h3>About</h3>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link href="/about">
+            <a href="#work-experience-section" onClick={navItemClickHandler}>
               <h3>Work/Experience</h3>
-            </Link>
+            </a>
           </li>
           <li>
-            <a href="#contact" onClick={contactClickHandler}>
+            <a href="#contact-section" onClick={navItemClickHandler}>
               <h3>Contact</h3>
             </a>
           </li>
           <li>
-            <Link href="/resume">
+            <a href="/my-resume.pdf" target="_blank">
               <h3 className="transparent-btn">Resume</h3>
-            </Link>
+            </a>
           </li>
         </ul>
 
