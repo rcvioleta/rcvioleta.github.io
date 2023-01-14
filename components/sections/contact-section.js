@@ -2,38 +2,22 @@ import styles from "./contact-section.module.css";
 
 export default function ContactSection(props) {
   return (
-    <section id="contact">
-      <h1>Get In Touch!</h1>
-      <p>You can contact me at:</p>
+    <section id={styles["contact-section"]}>
+      <h2 className="section-title">Get In Touch!</h2>
 
-      <div className={`${styles["box-1"]} ${styles.flexbox}`}>
-        <div className={styles.icon}>
-          <i className="fas fa-map-marker-alt"></i>
-        </div>
-        <div className={styles.description}>
-          59A Father Selga Street, <br />
-          <span className={styles["bold-text"]}>
-            Davao City 8000, Philippines
-          </span>
-        </div>
+      <div className={styles["contact-section__content"]}>
+        <p>
+          Although I'm not currently looking for any new opportunities, my inbox
+          is always open. Whether you have a question or just want to say hi,
+          I'll try my best to get back to you!
+        </p>
 
-        <div className={styles.icon}>
-          <i className="fas fa-phone-square"></i>
-        </div>
-        <div className={styles.description}>
-          <span className={styles["bold-text"]}>
-            <a href="tel:+639098111780">+63 909-8111-780</a>
-          </span>
-        </div>
-
-        <div className={styles.icon}>
-          <i className="fas fa-envelope"></i>
-        </div>
-        <div className={styles.description}>
-          <span className={styles["bold-text"]}>
-            <a href="mailto:rcvioleta13@gmail.com">rcvioleta13@gmail.com</a>
-          </span>
-        </div>
+        <a
+          className="transparent-btn mt3rem"
+          href="mailto:rcvioleta13@gmail.com"
+        >
+          Say Hi!
+        </a>
       </div>
     </section>
   );

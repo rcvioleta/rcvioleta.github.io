@@ -1,0 +1,20 @@
+#contact-section {
+  max-width: 600px;
+  text-align: center;
+  margin: 0 auto 8rem;
+  padding: 8rem 0;
+}
+
+#contact-section > h2 {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.1rem, 8vw, 3rem);
+}
+
+#contact-section > h2::after {
+  content: none;
+}
+
+.contact-section__content > p {
+  font-size: var(--fsp);
+}

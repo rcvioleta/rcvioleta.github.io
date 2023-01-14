@@ -5,7 +5,7 @@ const DEFAULT_TIMEOUT = 90;
 
 export const useTypedLetters = () => {
   const [typedLetter, setTypedLetter] = useState("");
-  const [isDoneTyping, setisDoneTyping] = useState(false);
+  const [isDoneTyping, setIsDoneTyping] = useState(false);
 
   useEffect(() => {
     if (!isDoneTyping) {
@@ -13,7 +13,7 @@ export const useTypedLetters = () => {
         const nextTypedLetter = text.slice(0, typedLetter.length + 1);
 
         if (nextTypedLetter === typedLetter) {
-          setisDoneTyping((prevState) => !prevState);
+          setIsDoneTyping((prevState) => !prevState);
           return;
         }
 
@@ -28,7 +28,7 @@ export const useTypedLetters = () => {
     if (isDoneTyping) {
       const timeout = setTimeout(() => {
         if (!typedLetter) {
-          setisDoneTyping((prevState) => !prevState);
+          setIsDoneTyping((prevState) => !prevState);
           return;
         }
 

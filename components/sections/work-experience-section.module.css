@@ -50,6 +50,7 @@ ul.company-list > li > a:hover {
 
 .company-description__item {
   margin: 1rem 0 0 2rem;
+  font-size: clamp(10px, 5vw, 1rem);
 }
 
 .company-description__item::before {
@@ -75,10 +76,6 @@ ul.company-list > li > a:hover {
 
 /* 600 - 900px tablet portrait */
 @media (max-width: 56.25em) {
-}
-
-/* 0 - 600px phone */
-@media (max-width: 37.5em) {
   .company-container {
     display: block;
   }
@@ -101,4 +98,8 @@ ul.company-list > li > a:hover {
   .company-description__container {
     margin-left: 0;
   }
+}
+
+/* 0 - 600px phone */
+@media (max-width: 37.5em) {
 }

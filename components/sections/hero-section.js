@@ -18,6 +18,9 @@ export default function HeroSection(props) {
           {typedLetter}
           <span className="cursor"></span>
         </h2>
+        <noscript>
+          You need to enable Javascript in order to see the text.
+        </noscript>
       </div>
       <div>
         <p id={styles["pitch-subtext"]}>

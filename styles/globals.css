@@ -11,6 +11,8 @@
 
   --font-nunito: "Nunito", sans-serif;
 
+  --fsp: clamp(10px, 4.5vw, 1.1rem);
+
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
@@ -94,14 +96,14 @@
   height: 8px;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb:horizontal {
   background: #fff;
   border: 3px solid #fff;
   border-radius: 10px;
 }
 
-/* 0 - 600px phone */
-@media (max-width: 37.5em) {
+/* 600 - 900px tablet portrait */
+@media (max-width: 56.25em) {
   .active {
     border-left: 0 !important;
     border-bottom: 3px solid var(--main-text-color) !important;
@@ -137,6 +139,14 @@ html {
 
 .mt2rem {
   margin-top: 2rem;
+}
+
+.mt3rem {
+  margin-top: 3rem;
+}
+
+.mt4rem {
+  margin-top: 4rem;
 }
 
 @media (prefers-color-scheme: dark) {
