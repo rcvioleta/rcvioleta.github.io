@@ -1,5 +1,7 @@
 import { Fragment, useContext } from "react";
 
+import AsideLeft from "./aside-left";
+import AsideRight from "./aside-right";
 import Footer from "./footer";
 import Header from "./header";
 
@@ -13,6 +15,8 @@ export default function Layout({ children }) {
   return (
     <Fragment>
       <Header />
+      <AsideLeft />
+      <AsideRight />
       {notificationData && <OverlayNotification {...notificationData} />}
       <main>{children}</main>
       <Footer />
