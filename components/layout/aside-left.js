@@ -6,22 +6,22 @@ export default function AsideLeft(props) {
       <div className={styles.container}>
         <ul>
           <li>
-            <a href="https://github.com/rcvioleta">
+            <a href="https://github.com/rcvioleta" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://codepen.io/rcvioleta13">
+            <a href="https://codepen.io/rcvioleta13" target="_blank">
               <i class="fab fa-codepen"></i>
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/rcvioleta/">
+            <a href="https://www.linkedin.com/in/rcvioleta/" target="_blank">
               <i class="fab fa-linkedin"></i>
             </a>
           </li>
           <li>
-            <a href="https://www.youtube.com/@roviotech9072">
+            <a href="https://www.youtube.com/@roviotech9072" target="_blank">
               <i class="fab fa-youtube"></i>
             </a>
           </li>
