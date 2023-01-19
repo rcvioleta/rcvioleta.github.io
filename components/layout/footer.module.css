@@ -1,6 +1,5 @@
 #footer {
   position: absolute;
-  /* bottom: 0; */
   width: 100%;
   height: auto;
   margin-top: 1rem;
@@ -9,67 +8,13 @@
   z-index: -1;
 }
 
-.flexbox {
-  display: flex;
-  width: 80%;
-  margin: 2rem auto;
-}
-
-.flexbox > div {
-  flex-basis: 50%;
-  /* border: 3px solid orange; */
-}
-
-.box-1 {
-  flex-wrap: wrap;
-  margin: 0 auto;
-  align-items: center;
-}
-
-.box-1 > div {
-  margin: 0 1rem;
-  /* border: 2px solid pink; */
-}
-
-.box-1 .icon {
-  flex-basis: 5%;
-  font-size: 1.5em;
-  color: var(--white);
-}
-
-.box-1 .description {
-  flex-basis: 82%;
-  text-align: left;
-  font-size: 1.2em;
-}
-
-.box-1 .description a,
-.box-1 .description a:active,
-.box-1 .description a:visited {
-  color: var(--white);
-}
-
-.box-2 {
-  text-align: left;
-  margin-left: 5rem;
-}
-
-.box-2 p {
-  margin: 2rem 0;
-  font-size: 1.2em;
-}
-
-.box-2 .icons {
-  font-size: 2em;
-}
-
-.box-2 .icons > i:not(:last-child) {
-  margin-right: 1rem;
-}
-
 .copyright {
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.icons-container {
+  margin-bottom: 1.5rem;
 }
 
 /* 900 - 1200px tablet landscape */
@@ -78,35 +23,43 @@
 
 /* 600 - 900px tablet portrait */
 @media (max-width: 56.25em) {
+  #footer {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .icons-container > [class*="aside-left"] {
+    position: relative;
+    display: block;
+  }
+
+  .icons-container [class*="aside-left_container"] {
+    display: block;
+    border: 5px solid pink;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .icons-container [class*="aside-left_container"] ul {
+    flex-direction: row;
+  }
+
+  .icons-container [class*="aside-left_container"] ul::after {
+    content: none;
+  }
+
+  .icons-container [class*="aside-left_container"] ul > li {
+    margin-bottom: 0;
+  }
+
+  .icons-container [class*="aside-left_container"] ul > li {
+    margin: 0 1.5rem;
+  }
 }
 
 /* 0 - 600px phone */
 @media (max-width: 37.5em) {
-  .flexbox {
-    width: 90%;
-    flex-direction: column;
-  }
-
-  .flexbox > div {
-    flex-basis: 100%;
-  }
-
-  .box-1 {
-    font-size: 1em;
-    flex-direction: row;
-    margin: 0;
-  }
-
-  .box-1 .icon {
-    margin-left: 0;
-  }
-
-  .box-1 .description {
-    flex-basis: 80%;
-  }
-
-  .box-2 {
-    margin: 2rem 0;
-    font-size: 0.8em;
-  }
 }
