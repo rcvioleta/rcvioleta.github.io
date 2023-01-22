@@ -91,18 +91,11 @@ ul.nav-items > li:not(:last-of-type) {
   text-transform: none;
 }
 
-/* .menu-stripes-container {
-  display: inline-block;
-  position: relative;
-  height: 24px;
-  width: var(--mobile-menu-width);
-} */
-
 .menu-stripes {
   position: absolute;
   top: 50%;
   right: 0;
-  height: 2px;
+  height: 3px;
   width: 90%;
   background-color: var(--main-text-color);
   transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
@@ -117,7 +110,7 @@ ul.nav-items > li:not(:last-of-type) {
   right: 0px;
   top: -10px;
   opacity: 1;
-  height: 2px;
+  height: inherit;
   width: var(--mobile-menu-width);
   background-color: var(--main-text-color);
 }
@@ -130,13 +123,63 @@ ul.nav-items > li:not(:last-of-type) {
   right: 0px;
   bottom: -10px;
   opacity: 1;
-  height: 2px;
+  height: inherit;
   width: 80%;
   background-color: var(--main-text-color);
 }
 
+.menu-stripes__open {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--main-text-color);
+  transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+  transform: rotate(225deg);
+}
+
+.menu-stripes__open::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: auto;
+  right: 0px;
+  bottom: 0px;
+  opacity: 1;
+  height: inherit;
+  width: inherit;
+  background-color: var(--main-text-color);
+  transform: rotate(-90deg);
+}
+
 #mobile-menu > aside {
-  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75vw;
+  height: 100vh;
+  background: #fff;
+}
+
+#mobile-menu > aside > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+#mobile-menu > aside > ul > li:not(:last-of-type) {
+  margin-bottom: 2.5rem;
+}
+
+#mobile-menu > aside > ul > li:last-child {
+  margin-top: 2.5rem;
 }
 
 /* 900 - 1200px tablet landscape */

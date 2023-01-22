@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./header.module.css";
 
 export default function Header(props) {
+  const [isHiddenMobileMenu, setIsHiddenMobileMenu] = useState(true);
+
   useEffect(() => {
     window.addEventListener("scroll", pageOnScrollHandler);
 
@@ -16,12 +18,13 @@ export default function Header(props) {
     };
   }, []);
 
-  function mobileMenuClickHandler(evt) {
-    evt.target.classList.toggle("hidden");
+  function mobileMenuClickHandler() {
+    setIsHiddenMobileMenu((prevState) => !prevState);
   }
 
   function navItemClickHandler(evt) {
-    document.querySelector('header[class*="header"]').removeAttribute("class");
+    document.querySelector("header").removeAttribute("class");
+    setIsHiddenMobileMenu(true);
   }
 
   function pageOnScrollHandler() {
@@ -75,20 +78,50 @@ export default function Header(props) {
         </ul>
 
         <div id={styles["mobile-menu"]}>
-          <button id={styles["mobile-menu-button"]}>
+          <button
+            id={styles["mobile-menu-button"]}
+            onClick={(evt) => mobileMenuClickHandler.bind(null, evt)}
+          >
             <div className={styles["menu-stripes-container"]}>
-              <div className={styles["menu-stripes"]}></div>
+              <div
+                className={
+                  isHiddenMobileMenu
+                    ? styles["menu-stripes"]
+                    : styles["menu-stripes__open"]
+                }
+              ></div>
             </div>
           </button>
 
-          <aside>
-            <ul>
-              <li>About</li>
-              <li>Work/Experience</li>
-              <li>Contact</li>
-              <li>Resume</li>
-            </ul>
-          </aside>
+          {!isHiddenMobileMenu && (
+            <aside>
+              <ul>
+                <li>
+                  <a href="#about-section" onClick={navItemClickHandler}>
+                    <h3>About</h3>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#work-experience-section"
+                    onClick={navItemClickHandler}
+                  >
+                    <h3>Work/Experience</h3>
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact-section" onClick={navItemClickHandler}>
+                    <h3>Contact</h3>
+                  </a>
+                </li>
+                <li>
+                  <a href="/my-resume.pdf" target="_blank">
+                    <h3 className="transparent-btn">Resume</h3>
+                  </a>
+                </li>
+              </ul>
+            </aside>
+          )}
         </div>
       </div>
     </header>
