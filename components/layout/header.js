@@ -8,15 +8,24 @@ export default function Header(props) {
 
   useEffect(() => {
     window.addEventListener("scroll", pageOnScrollHandler);
+    window.addEventListener(
+      "touchmove",
+      !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+      { passive: false } || false
+    );
 
     const mobileMenuEl = document.querySelector('[id*="mobile-menu"]');
     mobileMenuEl.addEventListener("click", mobileMenuClickHandler);
 
     return () => {
       window.removeEventListener("scroll", pageOnScrollHandler);
+      window.removeEventListener(
+        "touchmove",
+        !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler
+      );
       mobileMenuEl.removeEventListener("click", mobileMenuClickHandler);
     };
-  }, []);
+  }, [isHiddenMobileMenu]);
 
   function mobileMenuClickHandler() {
     setIsHiddenMobileMenu((prevState) => !prevState);
@@ -27,7 +36,12 @@ export default function Header(props) {
     setIsHiddenMobileMenu(true);
   }
 
-  function pageOnScrollHandler() {
+  function disableScroll(evt) {
+    evt.preventDefault();
+    return false;
+  }
+
+  function pageOnScrollHandler(evt) {
     const navContainer = document.querySelector(
       '[class^="header_nav-container"]'
     );

@@ -93,6 +93,7 @@ ul.nav-items > li:not(:last-of-type) {
 
 .menu-stripes {
   position: absolute;
+  z-index: 20;
   top: 50%;
   right: 0;
   height: 3px;
@@ -105,6 +106,7 @@ ul.nav-items > li:not(:last-of-type) {
 .menu-stripes::before {
   content: "";
   position: absolute;
+  z-index: inherit;
   display: block;
   left: auto;
   right: 0px;
@@ -118,6 +120,7 @@ ul.nav-items > li:not(:last-of-type) {
 .menu-stripes::after {
   content: "";
   position: absolute;
+  z-index: inherit;
   display: block;
   left: auto;
   right: 0px;
@@ -130,6 +133,7 @@ ul.nav-items > li:not(:last-of-type) {
 
 .menu-stripes__open {
   position: absolute;
+  z-index: 100;
   top: 50%;
   right: 0;
   height: 3px;
@@ -142,6 +146,7 @@ ul.nav-items > li:not(:last-of-type) {
 .menu-stripes__open::after {
   content: "";
   position: absolute;
+  z-index: inherit;
   display: block;
   left: auto;
   right: 0px;
@@ -155,6 +160,7 @@ ul.nav-items > li:not(:last-of-type) {
 
 #mobile-menu > aside {
   position: fixed;
+  z-index: 5;
   top: 0;
   right: 0;
   width: 75vw;
