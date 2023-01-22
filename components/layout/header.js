@@ -1,43 +1,60 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import styles from "./header.module.css";
 
-export default function Header(props) {
-  const [isHiddenMobileMenu, setIsHiddenMobileMenu] = useState(true);
-
+export default function Header({
+  isHiddenMobileMenu,
+  navItemClickHandler,
+  mobileMenuClickHandler,
+}) {
   useEffect(() => {
-    window.addEventListener("scroll", pageOnScrollHandler);
+    document
+      .querySelector('[id*="index_content"]')
+      .addEventListener("click", disableScroll);
+
+    window.addEventListener(
+      "mousewheel",
+      !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+      { passive: isHiddenMobileMenu } || isHiddenMobileMenu
+    );
+
     window.addEventListener(
       "touchmove",
       !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
-      { passive: false } || false
+      { passive: isHiddenMobileMenu } || isHiddenMobileMenu
     );
 
     const mobileMenuEl = document.querySelector('[id*="mobile-menu"]');
     mobileMenuEl.addEventListener("click", mobileMenuClickHandler);
 
     return () => {
-      window.removeEventListener("scroll", pageOnScrollHandler);
+      window.removeEventListener(
+        "mousewheel",
+        !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+        false
+      );
       window.removeEventListener(
         "touchmove",
-        !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler
+        !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+        false
       );
+      document
+        .querySelector('[id*="index_content"]')
+        .removeEventListener("click", disableScroll);
       mobileMenuEl.removeEventListener("click", mobileMenuClickHandler);
     };
   }, [isHiddenMobileMenu]);
 
-  function mobileMenuClickHandler() {
-    setIsHiddenMobileMenu((prevState) => !prevState);
-  }
-
-  function navItemClickHandler(evt) {
-    document.querySelector("header").removeAttribute("class");
-    setIsHiddenMobileMenu(true);
-  }
-
   function disableScroll(evt) {
     evt.preventDefault();
+    evt.stopPropagation();
+
+    if (evt.type !== "mousewheel" && !isHiddenMobileMenu) {
+      document.querySelector('[id*="mobile-menu-button"]').click();
+      return false;
+    }
+
     return false;
   }
 
@@ -94,7 +111,7 @@ export default function Header(props) {
         <div id={styles["mobile-menu"]}>
           <button
             id={styles["mobile-menu-button"]}
-            onClick={(evt) => mobileMenuClickHandler.bind(null, evt)}
+            onClick={mobileMenuClickHandler()}
           >
             <div className={styles["menu-stripes-container"]}>
               <div

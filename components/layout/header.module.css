@@ -175,17 +175,17 @@ ul.nav-items > li:not(:last-of-type) {
   align-items: center;
   height: 100vh;
   list-style: none;
-  font-size: 1.5rem;
+  font-size: var(--nav-text-size);
   font-weight: bold;
   color: #000;
 }
 
 #mobile-menu > aside > ul > li:not(:last-of-type) {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 #mobile-menu > aside > ul > li:last-child {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 
 /* 900 - 1200px tablet landscape */
