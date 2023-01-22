@@ -14,7 +14,7 @@ export default function Layout({ children }) {
   const notificationCtx = useContext(NotificationContext);
   const notificationData = notificationCtx.notification;
 
-  function mobileMenuClickHandler(evt) {
+  function toggleSidebarHandler(evt) {
     setIsHiddenMobileMenu((prevState) => !prevState);
   }
 
@@ -28,7 +28,8 @@ export default function Layout({ children }) {
       <Header
         isHiddenMobileMenu={isHiddenMobileMenu}
         navItemClickHandler={navItemClickHandler}
-        mobileMenuClickHandler={() => mobileMenuClickHandler}
+        // mobileMenuClickHandler={() => mobileMenuClickHandler}
+        toggleSidebar={toggleSidebarHandler}
       />
       <AsideLeft />
       <AsideRight />

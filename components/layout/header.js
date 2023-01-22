@@ -7,6 +7,7 @@ export default function Header({
   isHiddenMobileMenu,
   navItemClickHandler,
   mobileMenuClickHandler,
+  toggleSidebar,
 }) {
   useEffect(() => {
     document
@@ -51,7 +52,8 @@ export default function Header({
     evt.stopPropagation();
 
     if (evt.type !== "mousewheel" && !isHiddenMobileMenu) {
-      document.querySelector('[id*="mobile-menu-button"]').click();
+      // document.querySelector('[id*="mobile-menu-button"]').click();
+      toggleSidebar();
       return false;
     }
 
@@ -111,7 +113,7 @@ export default function Header({
         <div id={styles["mobile-menu"]}>
           <button
             id={styles["mobile-menu-button"]}
-            onClick={mobileMenuClickHandler()}
+            onClick={() => toggleSidebar()}
           >
             <div className={styles["menu-stripes-container"]}>
               <div
