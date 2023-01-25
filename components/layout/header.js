@@ -48,8 +48,8 @@ export default function Header({
   }, [isHiddenMobileMenu]);
 
   function disableScroll(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
+    // evt.preventDefault();
+    // evt.stopPropagation();
 
     if (evt.type !== "mousewheel" && !isHiddenMobileMenu) {
       // document.querySelector('[id*="mobile-menu-button"]').click();
