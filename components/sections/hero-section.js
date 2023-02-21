@@ -24,9 +24,8 @@ export default function HeroSection(props) {
       </div>
       <div>
         <p id={styles["pitch-subtext"]}>
-          I'm a software engineer specializing in building (and occasionally
-          designing) exceptional digital experiences. Currently, I'm focused on
-          building accessible, human-centered products at Upstatement.
+          I always get excited about opportunities that create mutually beneficial partnerships that drive growth on both sides of the relationship, specifically in the world of technology/software development. Currently, I'm focused on
+          supervising software engineers at <a href="https://www.joinhoney.com/">Honey</a>
         </p>
       </div>
       <div>
