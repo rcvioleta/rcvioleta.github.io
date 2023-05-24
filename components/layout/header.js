@@ -83,7 +83,7 @@ export default function Header({
       <div className={styles["nav-container"]}>
         <div className={styles.logo}>
           <Link href="/">
-            <h1>RC</h1>
+            <h1>{"<RC/>"}</h1>
           </Link>
         </div>
 

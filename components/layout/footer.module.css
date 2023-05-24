@@ -18,8 +18,7 @@
 }
 
 /* 900 - 1200px tablet landscape */
-@media (max-width: 75em) {
-}
+@media (max-width: 75em) {}
 
 /* 600 - 900px tablet portrait */
 @media (max-width: 56.25em) {
@@ -34,7 +33,7 @@
     /* border: 5px solid pink; */
   }
 
-  .icons-container > [class*="aside-left_left"] {
+  .icons-container>[class*="aside-left_left"] {
     position: relative;
     display: block;
     left: 0;
@@ -54,15 +53,14 @@
     content: none;
   }
 
-  .icons-container [class*="aside-left_container"] ul > li {
+  .icons-container [class*="aside-left_container"] ul>li {
     margin-bottom: 0;
   }
 
-  .icons-container [class*="aside-left_container"] ul > li {
+  .icons-container [class*="aside-left_container"] ul>li {
     margin: 0 1.5rem;
   }
 }
 
 /* 0 - 600px phone */
-@media (max-width: 37.5em) {
-}
+@media (max-width: 37.5em) {}

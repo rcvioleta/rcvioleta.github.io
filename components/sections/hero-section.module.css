@@ -17,7 +17,7 @@
 
 #name h2,
 #pitch h2 {
-  font-size: clamp(10px, 7.5vw, 70px);
+  font-size: clamp(10px, 7.5vw, 70px)
 }
 
 #pitch h2 {
@@ -31,12 +31,10 @@
 }
 
 /* 900 - 1200px tablet landscape */
-@media (max-width: 75em) {
-}
+@media (max-width: 75em) {}
 
 /* 600 - 900px tablet portrait */
-@media (max-width: 56.25em) {
-}
+@media (max-width: 56.25em) {}
 
 /* 0 - 600px phone */
 @media (max-width: 37.5em) {

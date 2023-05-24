@@ -10,16 +10,16 @@
   align-items: center;
 }
 
-.container > a {
+.container>a {
   writing-mode: vertical-lr;
   -webkit-writing-mode: vertical-lr;
   margin-bottom: 2rem;
   letter-spacing: 1px;
   font-size: 0.9rem;
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: var(--translate-y-animation)
 }
 
-.container > a:hover {
+.container>a:hover {
   transform: translateY(-3px);
   color: var(--main-text-color);
 }
@@ -32,8 +32,7 @@
 }
 
 /* 900 - 1200px tablet landscape */
-@media (max-width: 75em) {
-}
+@media (max-width: 75em) {}
 
 /* 600 - 900px tablet portrait */
 @media (max-width: 56.25em) {
@@ -43,5 +42,4 @@
 }
 
 /* 0 - 600px phone */
-@media (max-width: 37.5em) {
-}
+@media (max-width: 37.5em) {}
