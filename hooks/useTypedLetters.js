@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const text = "I build software to make life easy!";
-const DEFAULT_TIMEOUT = 90;
+const text = "Simplifying your life, one web app at a time!";
+const DEFAULT_TIMEOUT = 80;
 
 export const useTypedLetters = () => {
   const [typedLetter, setTypedLetter] = useState("");
