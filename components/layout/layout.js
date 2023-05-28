@@ -5,14 +5,8 @@ import AsideRight from "./aside-right";
 import Footer from "./footer";
 import Header from "./header";
 
-import NotificationContext from "../../store/notification-context";
-import OverlayNotification from "../notifications/overlay-notification";
-
 export default function Layout({ children }) {
   const [isHiddenMobileMenu, setIsHiddenMobileMenu] = useState(true);
-
-  const notificationCtx = useContext(NotificationContext);
-  const notificationData = notificationCtx.notification;
 
   function toggleSidebarHandler(evt) {
     setIsHiddenMobileMenu((prevState) => !prevState);
@@ -28,12 +22,10 @@ export default function Layout({ children }) {
       <Header
         isHiddenMobileMenu={isHiddenMobileMenu}
         navItemClickHandler={navItemClickHandler}
-        // mobileMenuClickHandler={() => mobileMenuClickHandler}
         toggleSidebar={toggleSidebarHandler}
       />
       <AsideLeft />
       <AsideRight />
-      {notificationData && <OverlayNotification {...notificationData} />}
       <main className={!isHiddenMobileMenu ? "blur" : ""}>{children}</main>
       <Footer />
     </Fragment>

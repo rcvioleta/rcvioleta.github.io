@@ -3,7 +3,6 @@ import Head from "next/head";
 import { Fragment } from "react";
 
 import Layout from "../components/layout/layout";
-import { NotificationContextProvider } from "../store/notification-context";
 
 import "../styles/globals.css";
 
@@ -19,11 +18,9 @@ export default function App({ Component, pageProps }) {
           crossorigin="anonymous"
         />
       </Head>
-      <NotificationContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </NotificationContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Fragment>
   );
 }

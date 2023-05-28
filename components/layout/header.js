@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
+import Menu from "../menu/menu";
 import styles from "./header.module.css";
 
 export default function Header({
@@ -9,20 +10,39 @@ export default function Header({
   mobileMenuClickHandler,
   toggleSidebar,
 }) {
+  const oldScroll = useRef(0);
+
   useEffect(() => {
-    document
-      .querySelector('[id*="index_content"]')
-      .addEventListener("click", disableScroll);
+    const handleScroll = () => {
+      const navContainer = document.querySelector(
+        '[class^="header_nav-container"]'
+      );
+
+      if (window.scrollY <= 0) {
+        navContainer.parentNode.setAttribute("class", styles.header);
+      } else if (oldScroll.current < window.scrollY) {
+        navContainer.parentNode.removeAttribute("class");
+      } else {
+        navContainer.parentNode.setAttribute(
+          "class",
+          styles["header__scroll-up"]
+        );
+      }
+      oldScroll.current = window.scrollY;
+    };
+
+    const indexContentEl = document.querySelector('[id*="index_content"]');
+    indexContentEl.addEventListener("click", disableScroll);
 
     window.addEventListener(
       "mousewheel",
-      !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+      !isHiddenMobileMenu ? disableScroll : handleScroll,
       { passive: isHiddenMobileMenu } || isHiddenMobileMenu
     );
 
     window.addEventListener(
       "touchmove",
-      !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+      !isHiddenMobileMenu ? disableScroll : handleScroll,
       { passive: isHiddenMobileMenu } || isHiddenMobileMenu
     );
 
@@ -32,50 +52,25 @@ export default function Header({
     return () => {
       window.removeEventListener(
         "mousewheel",
-        !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+        !isHiddenMobileMenu ? disableScroll : handleScroll,
         false
       );
       window.removeEventListener(
         "touchmove",
-        !isHiddenMobileMenu ? disableScroll : pageOnScrollHandler,
+        !isHiddenMobileMenu ? disableScroll : handleScroll,
         false
       );
-      document
-        .querySelector('[id*="index_content"]')
-        .removeEventListener("click", disableScroll);
+      indexContentEl.removeEventListener("click", disableScroll);
       mobileMenuEl.removeEventListener("click", mobileMenuClickHandler);
     };
   }, [isHiddenMobileMenu]);
 
   function disableScroll(evt) {
-    // evt.preventDefault();
-    // evt.stopPropagation();
-
     if (evt.type !== "mousewheel" && !isHiddenMobileMenu) {
-      // document.querySelector('[id*="mobile-menu-button"]').click();
       toggleSidebar();
       return false;
     }
-
     return false;
-  }
-
-  function pageOnScrollHandler(evt) {
-    const navContainer = document.querySelector(
-      '[class^="header_nav-container"]'
-    );
-
-    if (this.scrollY <= 0) {
-      navContainer.parentNode.setAttribute("class", styles.header);
-    } else if (this.oldScroll < this.scrollY) {
-      navContainer.parentNode.removeAttribute("class");
-    } else {
-      navContainer.parentNode.setAttribute(
-        "class",
-        styles["header__scroll-up"]
-      );
-    }
-    this.oldScroll = this.scrollY;
   }
 
   return (
@@ -87,28 +82,11 @@ export default function Header({
           </Link>
         </div>
 
-        <ul className={styles["nav-items"]}>
-          <li>
-            <a href="#about-section" onClick={navItemClickHandler}>
-              <h3>About</h3>
-            </a>
-          </li>
-          <li>
-            <a href="#work-experience-section" onClick={navItemClickHandler}>
-              <h3>Work/Experience</h3>
-            </a>
-          </li>
-          <li>
-            <a href="#contact-section" onClick={navItemClickHandler}>
-              <h3>Contact</h3>
-            </a>
-          </li>
-          <li>
-            <a href="/my-resume.pdf" target="_blank">
-              <h3 className="transparent-btn">Resume</h3>
-            </a>
-          </li>
-        </ul>
+        <Menu
+          isHiddenMobileMenu={isHiddenMobileMenu}
+          navItemClickHandler={navItemClickHandler}
+          styles={styles}
+        />
 
         <div id={styles["mobile-menu"]}>
           <button
@@ -128,31 +106,11 @@ export default function Header({
 
           {!isHiddenMobileMenu && (
             <aside>
-              <ul>
-                <li>
-                  <a href="#about-section" onClick={navItemClickHandler}>
-                    <h3>About</h3>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#work-experience-section"
-                    onClick={navItemClickHandler}
-                  >
-                    <h3>Work/Experience</h3>
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact-section" onClick={navItemClickHandler}>
-                    <h3>Contact</h3>
-                  </a>
-                </li>
-                <li>
-                  <a href="/my-resume.pdf" target="_blank">
-                    <h3 className="transparent-btn">Resume</h3>
-                  </a>
-                </li>
-              </ul>
+              <Menu
+                isHiddenMobileMenu={isHiddenMobileMenu}
+                navItemClickHandler={navItemClickHandler}
+                styles={styles}
+              />
             </aside>
           )}
         </div>

@@ -52,10 +52,22 @@ ul.company-list > li > a:hover {
   margin: 1rem 0 0 2rem;
   font-size: clamp(10px, 5vw, 1rem);
 }
-
 .company-description__item::before {
   position: absolute;
   left: 0;
+  content: "►";
+  color: var(--main-text-color);
+  margin-right: 0.5rem;
+}
+
+.company-description__item-subcat {
+  margin: 0.5rem 0 0 2rem;
+  font-size: clamp(10px, 5vw, 1rem);
+}
+
+.company-description__item-subcat::before {
+  position: absolute;
+  left: 1.8rem;
   content: "►";
   color: var(--main-text-color);
   margin-right: 0.5rem;
