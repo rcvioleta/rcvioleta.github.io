@@ -3,6 +3,8 @@ export default function Menu({
   navItemClickHandler,
   styles,
 }) {
+  const isProduction = process.env.NODE_ENV === "development" ? false : true;
+
   return (
     <ul className={isHiddenMobileMenu ? styles["nav-items"] : ""}>
       <li>
@@ -21,7 +23,7 @@ export default function Menu({
         </a>
       </li>
       <li>
-        <a href="/resume.pdf">
+        <a href={`${isProduction ? "/portfolio" : ""}/resume.pdf`}>
           <h3 className="transparent-btn">Resume</h3>
         </a>
       </li>
