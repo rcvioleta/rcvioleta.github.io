@@ -82,11 +82,7 @@ export default function Header({
           </Link>
         </div>
 
-        <Menu
-          isHiddenMobileMenu={isHiddenMobileMenu}
-          navItemClickHandler={navItemClickHandler}
-          styles={styles}
-        />
+        <Menu {...{ isHiddenMobileMenu, navItemClickHandler, styles }} />
 
         <div id={styles["mobile-menu"]}>
           <button
@@ -106,11 +102,7 @@ export default function Header({
 
           {!isHiddenMobileMenu && (
             <aside>
-              <Menu
-                isHiddenMobileMenu={isHiddenMobileMenu}
-                navItemClickHandler={navItemClickHandler}
-                styles={styles}
-              />
+              <Menu {...{ isHiddenMobileMenu, navItemClickHandler, styles }} />
             </aside>
           )}
         </div>
