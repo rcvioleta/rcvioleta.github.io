@@ -13,6 +13,8 @@ export default function Header({
   const oldScroll = useRef(0);
 
   useEffect(() => {
+    console.log("basePath", process.env.NEXT_PUBLIC_BASE_PATH);
+
     const handleScroll = () => {
       const navContainer = document.querySelector(
         '[class^="header_nav-container"]'
