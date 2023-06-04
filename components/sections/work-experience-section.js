@@ -11,7 +11,7 @@ export default function WorkExperienceSection(props) {
 
   return (
     <section
-      id="work-experience-section"
+      id="work-experience"
       className={styles["work-experience-container"]}
     >
       <h1 className="section-title">Work / Experience</h1>

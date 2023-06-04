@@ -8,17 +8,12 @@ import WorkExperienceSection from "../components/sections/work-experience-sectio
 import styles from "./index.module.css";
 
 export default function Home() {
-  const isProduction = process.env.NODE_ENV === "development" ? false : true;
-
   return (
     <>
       <Head>
         <title>Home</title>
         <meta name="description" content="Software Development" />
-        <link
-          rel="icon"
-          href={`${isProduction ? "/portfolio" : ""}/favicon.ico`}
-        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id={styles.content}>
         <HeroSection />
