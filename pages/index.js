@@ -8,19 +8,19 @@ import WorkExperienceSection from "../components/sections/work-experience-sectio
 import styles from "./index.module.css";
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Home</title>
-        <meta name="description" content="Software Development" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div id={styles.content}>
-        <HeroSection />
-        <AboutSection />
-        <WorkExperienceSection />
-        <ContactSection />
-      </div>
-    </>
-  );
+	return (
+		<>
+			<Head>
+				<title>Home</title>
+				<meta name="description" content="Software Development" />
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<div id={styles.content}>
+				<HeroSection />
+				<AboutSection />
+				<WorkExperienceSection />
+				<ContactSection />
+			</div>
+		</>
+	);
 }
