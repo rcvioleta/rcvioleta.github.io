@@ -7,6 +7,8 @@ import WorkExperienceSection from "../components/sections/work-experience-sectio
 
 import styles from "./index.module.css";
 
+const GTAG_ID = process.env.GTAG_ID;
+
 export default function Home() {
 	return (
 		<>
@@ -14,8 +16,24 @@ export default function Home() {
 				<title>Home</title>
 				<meta name="description" content="Software Development" />
 				<link rel="icon" href="/favicon.ico" />
+				<script
+					src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}
+					defer
+				></script>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${GTAG_ID}');
+        `,
+					}}
+				></script>
 			</Head>
 			<div id={styles.content}>
+				{/* <GoogleAnalytics GA_MEASUREMENT_ID={process.env.GA_MEASUREMENT_ID} /> */}
 				<HeroSection />
 				<AboutSection />
 				<WorkExperienceSection />

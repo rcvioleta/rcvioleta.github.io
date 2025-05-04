@@ -4,8 +4,6 @@ import { Fragment } from "react";
 
 import Layout from "../components/layout/layout";
 
-import GoogleAnalytics from "../components/google-analytics/GoogleAnalytics";
-
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
@@ -19,7 +17,6 @@ export default function App({ Component, pageProps }) {
 					integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
 					crossorigin="anonymous"
 				/>
-				<GoogleAnalytics GA_MEASUREMENT_ID={process.env.GA_MEASUREMENT_ID} />
 			</Head>
 			<Layout>
 				<Component {...pageProps} />

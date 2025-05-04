@@ -5,7 +5,7 @@ const nextConfig = {
 	},
 	reactStrictMode: true,
 	env: {
-		GA_MEASUREMENT_ID: "G-WS3D59E1ZR",
+		GTAG_ID: "G-WS3D59E1ZR",
 	},
 };
 
