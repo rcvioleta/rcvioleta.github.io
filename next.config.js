@@ -3,7 +3,7 @@ const nextConfig = {
 	images: {
 		domains: ["s.pngkit.com"],
 	},
-	reactStrictMode: true,
+	reactStrictMode: false,
 	env: {
 		GTAG_ID: "G-WS3D59E1ZR",
 	},
