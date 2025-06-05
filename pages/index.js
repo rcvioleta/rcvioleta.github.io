@@ -10,7 +10,7 @@ export default function Home() {
 			<Head>
 				<title>Rogene Cris Perez Violeta | Portfolio</title>
 				<meta name="description" content="Software Development" />
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="icon" href="/favicon.png" />
 				<script
 					src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}
 					defer
