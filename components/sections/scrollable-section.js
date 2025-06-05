@@ -6,31 +6,19 @@ import styles from "./scrollable-section.module.css";
 const Modal = ({ handleClose }) => {
 	return (
 		<div className={styles["modal-container"]}>
-			<div className={styles["modal-backdrop"]}></div>
 			<a href="#close" onClick={handleClose}>
-				close
+				X
 			</a>
-			<div
-				style={{
-					position: "fixed",
-					top: "50%",
-					left: "50%",
-					transform: "translate(-50%, -50%)",
-				}}
-			>
-				<video width="640" controls>
-					<source
-						src="https://www.youtube.com/watch?v=iGUSTyG-CYw"
-						type="video/mp4"
-					/>
-					Your browser does not support the video tag.
-				</video>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-					iste, nihil eius ipsam quam fugit provident architecto impedit ea
-					laboriosam!
-				</p>
-			</div>
+			<iframe
+				width="100%"
+				height="100%"
+				src="https://www.youtube.com/embed/UWwNIMHFdW4"
+				title="60-30-10 Color Rule"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+			></iframe>
 		</div>
 	);
 };
