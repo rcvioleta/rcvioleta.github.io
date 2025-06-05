@@ -1,0 +1,129 @@
+.about-section,
+.experience-section {
+	margin-bottom: 9rem;
+}
+
+.about-section,
+.experience-section,
+.projects-section {
+	scroll-margin-top: 6rem;
+}
+
+.about-section > p {
+	font-size: var(--text-lg);
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.about-section > p:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+.experience-section > ol {
+	list-style: none;
+}
+
+.experience-section > ol > li:hover .backdrop {
+	position: absolute;
+	display: block;
+	top: -1rem;
+	bottom: -1rem;
+	left: -1rem;
+	right: -1rem;
+	border-radius: 0.3rem;
+	background: rgba(255, 255, 255, 0.05);
+	transition: all 0.2s ease;
+	box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+	z-index: 0;
+}
+
+.experience-section > ol > li:not(:last-child) {
+	margin-bottom: 3rem;
+}
+
+.experience-section > ol > li {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1;
+	position: relative;
+	cursor: context-menu;
+}
+
+.experience-section > ol > li > .desc > ul {
+	margin-top: 0.7rem;
+}
+
+.experience-section > ol > li > .desc > h1 {
+	font-size: var(--text-lg);
+	font-weight: 600;
+	color: inherit;
+	transition: color 0.2s ease;
+}
+
+.experience-section > ol > li:hover h1 {
+	color: #40e940;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.experience-section > ol > li > .years {
+	font-size: var(--text-sm);
+	color: rgb(255, 255, 255, 0.5);
+	font-weight: 600;
+	line-height: 1.7;
+}
+
+.experience-section > ol > li > .desc > p {
+	margin-top: 0.7rem;
+	font-size: var(--text-base);
+	font-weight: normal;
+	color: rgb(255, 255, 255, 0.5);
+}
+
+.experience-section > ol > li ul.tech-stack {
+	margin-top: 0.7rem;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.experience-section > ol > li ul.tech-stack > li {
+	background-color: rgb(64, 233, 64, 0.2);
+	color: #40e940;
+	font-size: var(--text-sm);
+	padding: 0.25rem 0.75rem;
+	border-radius: 1rem;
+}
+
+.experience-section > ol > li ul.tech-stack > li {
+	margin: 0.25rem 0;
+}
+
+.experience-section > ol > li ul.tech-stack > li:not(:last-child) {
+	margin-right: 0.5rem;
+}
+
+.resume-link {
+	font-weight: bold;
+	font-size: var(--text-lg);
+}
+
+.resume-link:hover {
+	color: #40e940;
+}
+
+@media screen and (min-width: 750px) {
+	.experience-section > ol > li {
+		flex-direction: row;
+	}
+
+	.experience-section > ol > li > .years {
+		min-width: 30%;
+		max-width: 35%;
+	}
+
+	.experience-section > ol > li > .desc {
+		width: 70%;
+	}
+}

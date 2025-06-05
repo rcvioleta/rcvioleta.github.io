@@ -1,0 +1,35 @@
+:root {
+	/* Units */
+	--16px-in-rem: 1.008rem;
+	--14px-in-rem: 0.882rem;
+
+	/* Typography */
+	--text-display-1: 4.032rem; /* 64px */
+	--text-display-2: 3.024rem; /* 48px */
+
+	--text-h1: 2.268rem; /* 36px */
+	--text-h2: 1.89rem; /* 30px */
+	--text-h3: 1.512rem; /* 24px */
+	--text-h4: 1.26rem; /* 20px */
+
+	--text-lg: 1.134rem; /* 18px */
+	--text-base: var(--16px-in-rem); /* 16px */
+	--text-sm: var(--14px-in-rem); /* 14px */
+	--text-xm: 0.756rem; /* 12px */
+
+	--btn-text-lg: var(--16px-in-rem); /* 16px */
+	--btn-text-base: var(--14px-in-rem); /* 14px */
+
+	--nav-link-text-lg: var(--16px-in-rem); /* 16px */
+	--nav-link-text-base: var(--14px-in-rem); /* 14px */
+
+	/* Colors: 60-30-10 Rule */
+	--primary-color-dark: #ff0000;
+	--primary-color-light: #ff0000c0;
+
+	--secondary-color-dark: #008000;
+	--secondary-color-light: #008000c7;
+
+	--tertiary-color-dark: #ffff00;
+	--tertiary-color-light: #ffff00d0;
+}

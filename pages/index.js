@@ -1,11 +1,6 @@
 import Head from "next/head";
 
-import AboutSection from "../components/sections/about-section";
-import ContactSection from "../components/sections/contact-section";
-import HeroSection from "../components/sections/hero-section";
-import WorkExperienceSection from "../components/sections/work-experience-section";
-
-import styles from "./index.module.css";
+import ScrollableSection from "../components/sections/scrollable-section";
 
 const GTAG_ID = process.env.GTAG_ID;
 
@@ -13,7 +8,7 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Home</title>
+				<title>Rogene Cris Perez Violeta | Portfolio</title>
 				<meta name="description" content="Software Development" />
 				<link rel="icon" href="/favicon.ico" />
 				<script
@@ -32,12 +27,8 @@ export default function Home() {
 					}}
 				></script>
 			</Head>
-			<div id={styles.content}>
-				{/* <GoogleAnalytics GA_MEASUREMENT_ID={process.env.GA_MEASUREMENT_ID} /> */}
-				<HeroSection />
-				<AboutSection />
-				<WorkExperienceSection />
-				<ContactSection />
+			<div>
+				<ScrollableSection />
 			</div>
 		</>
 	);

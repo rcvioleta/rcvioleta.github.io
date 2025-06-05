@@ -4,6 +4,7 @@ import { Fragment } from "react";
 
 import Layout from "../components/layout/layout";
 
+import "../styles/custom-settings.css";
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
