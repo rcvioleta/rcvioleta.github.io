@@ -1,8 +1,47 @@
-import React from "react";
+import Image from "next/image";
+import React, { useState } from "react";
 
 import styles from "./scrollable-section.module.css";
 
+const Modal = ({ handleClose }) => {
+	return (
+		<div className={styles["modal-container"]}>
+			<div className={styles["modal-backdrop"]}></div>
+			<a href="#close" onClick={handleClose}>
+				close
+			</a>
+			<div
+				style={{
+					position: "fixed",
+					top: "50%",
+					left: "50%",
+					transform: "translate(-50%, -50%)",
+				}}
+			>
+				<video width="640" controls>
+					<source
+						src="https://www.youtube.com/watch?v=iGUSTyG-CYw"
+						type="video/mp4"
+					/>
+					Your browser does not support the video tag.
+				</video>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+					iste, nihil eius ipsam quam fugit provident architecto impedit ea
+					laboriosam!
+				</p>
+			</div>
+		</div>
+	);
+};
+
 export default function ScrollableSection() {
+	const [isOpen, setIsOpen] = useState(false);
+
+	const handleOpenModal = () => {
+		setIsOpen(!isOpen);
+	};
+
 	return (
 		<React.Fragment>
 			<section id="about" className={styles["about-section"]}>
@@ -132,9 +171,65 @@ export default function ScrollableSection() {
 			</section>
 
 			<section id="projects" className={styles["projects-section"]}>
-				<h3>Projects goes here</h3>
-				<p>This will be available soon!</p>
+				<div className={styles["project-item"]}>
+					<a
+						href="#link-1"
+						className={styles["backdrop"]}
+						onClick={() => handleOpenModal()}
+					></a>
+					{/* <div className={styles["backdrop"]}></div> */}
+					<div class={styles["project-image"]}>
+						<Image
+							src="/funnel.png"
+							width={150}
+							height={80}
+							alt="Project Thumbnail"
+							style={{ borderRadius: "0.25rem" }}
+						/>
+					</div>
+					<div className={styles["project-details"]}>
+						<h1>Full Stack Web Developer · Flatworld Solutions</h1>
+						<p>
+							Built engaging website interfaces with HTML, CSS, JS, and frontend
+							libraries, while integrating Laravel with GraphQL and SQL for
+							seamless data handling. Applied OOP principles for scalable code
+							and maintained transparent client communication, incorporating
+							feedback to exceed expectations and deliver successful project
+							outcomes.
+						</p>
+					</div>
+				</div>
+				<div className={styles["project-item"]}>
+					<a
+						href="#link-2"
+						className={styles["backdrop"]}
+						onClick={() => handleOpenModal()}
+					></a>
+					{/* <div className={styles["backdrop"]}></div> */}
+					<div class={styles["project-image"]}>
+						<Image
+							src="/funnel.png"
+							width={150}
+							height={80}
+							alt="Project Thumbnail"
+							style={{ borderRadius: "0.25rem" }}
+						/>
+					</div>
+					<div className={styles["project-details"]}>
+						<h1>Full Stack Web Developer · Flatworld Solutions</h1>
+						<p>
+							Built engaging website interfaces with HTML, CSS, JS, and frontend
+							libraries, while integrating Laravel with GraphQL and SQL for
+							seamless data handling. Applied OOP principles for scalable code
+							and maintained transparent client communication, incorporating
+							feedback to exceed expectations and deliver successful project
+							outcomes.
+						</p>
+					</div>
+				</div>
 			</section>
+
+			{isOpen && <Modal handleClose={handleOpenModal} />}
 		</React.Fragment>
 	);
 }
