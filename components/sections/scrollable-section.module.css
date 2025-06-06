@@ -10,7 +10,8 @@
 }
 
 .about-section > p {
-	font-size: var(--text-lg);
+	font-size: var(--text-base);
+	line-height: 1.7;
 	color: rgba(255, 255, 255, 0.5);
 }
 
@@ -79,7 +80,8 @@
 .experience-section > ol > li > .desc > p,
 .projects-section .project-details p {
 	margin-top: 0.7rem;
-	font-size: var(--text-base);
+	font-size: var(--text-sm);
+	line-height: 1.5;
 	font-weight: normal;
 	color: rgb(255, 255, 255, 0.5);
 }
@@ -115,6 +117,18 @@
 
 .resume-link:hover {
 	color: #40e940;
+}
+
+.resume-link > span > svg {
+	height: 1rem;
+	width: 1rem;
+	margin-left: 0.25rem;
+	transform: translate(-1px, 4px);
+	transition: transform 0.2s ease;
+}
+
+.resume-link:hover span > svg {
+	transform: translate(2px, -2px);
 }
 
 .projects-section {
