@@ -10,8 +10,9 @@ export default function Home() {
 		const handleMouseOver = (e) => {
 			const x = Math.round((e.pageX / window.innerWidth) * 100);
 			const y = Math.round((e.pageY / window.innerHeight) * 46);
+			const background = `radial-gradient(37.5rem at ${x}% ${y}%, #0f0f0f, #000000)`;
 
-			document.body.style.backgroundImage = `radial-gradient(37.5rem at ${x}% ${y}%, #0f0f0f, #000000)`;
+			document.body.style.backgroundImage = background;
 		};
 
 		window.addEventListener("mousemove", handleMouseOver);

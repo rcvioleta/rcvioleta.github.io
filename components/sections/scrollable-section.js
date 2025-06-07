@@ -56,6 +56,12 @@ export default function ScrollableSection() {
 					workflows, and contributing to revenue growth through strategic
 					integrations.
 				</p>
+
+				<p>
+					Solid hands-on experience in GoHighLevel, enabling me to build
+					workflows, manage CRM, automate email/SMS marketing, and optimize
+					customer journeys to drive results for businesses.
+				</p>
 			</section>
 
 			<section id="experience" className={styles["experience-section"]}>
