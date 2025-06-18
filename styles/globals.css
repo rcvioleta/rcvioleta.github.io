@@ -221,7 +221,12 @@ body {
 		)
 		rgb(var(--background-start-rgb)); */
 	color: #ffffff;
-	background-color: #000000;
+	background-color: #1a1a1a;
+	background-image: none;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right center;
+	background-attachment: fixed;
 }
 
 a {
@@ -234,3 +239,9 @@ a {
 		color-scheme: dark;
 	}
 } */
+
+@media screen and (min-width: 1620px) {
+	body {
+		background-image: url("../public/background-image.png");
+	}
+}

@@ -6,12 +6,14 @@
 	font-size: var(--text-h1);
 	line-height: 1;
 	font-weight: bold;
+	color: #ffffff;
 }
 
 .self-intro h2 {
 	font-size: var(--text-h4);
 	margin-top: 0.625rem;
 	font-weight: normal;
+	color: #ffffff;
 }
 
 .self-intro p {
@@ -41,18 +43,56 @@
 	margin-left: 1.563rem;
 }
 
+.nav > li:not(:last-child)::after {
+	content: "|";
+	margin-left: 1.563rem;
+	width: 2px;
+	opacity: 1;
+	color: rgba(0, 0, 0, 0.5);
+}
+
 .social-media-list a {
 	font-size: var(--text-h3);
-	color: inherit;
+	color: #ffffff;
 	transition: color 0.2s ease;
 }
 
 .social-media-list a:hover {
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(0, 0, 0, 0.5);
 }
 
 .scrollable-section {
 	padding: 6rem 0;
+}
+
+@media screen and (min-width: 1620px) {
+	.self-intro h1 {
+		color: #1a1a1a;
+	}
+
+	.self-intro h2 {
+		color: #1a1a1a;
+	}
+
+	.self-intro p {
+		color: rgb(0, 0, 0, 0.5);
+	}
+
+	.social-media-list a:hover {
+		color: rgb(0, 0, 0, 0.5);
+	}
+
+	.social-media-list a {
+		color: #1a1a1a;
+	}
+
+	.social-media-list a:hover {
+		color: rgb(0, 0, 0, 0.5);
+	}
+
+	.nav > li:not(:last-child)::after {
+		color: #1a1a1a;
+	}
 }
 
 @media screen and (min-width: 750px) {
@@ -76,13 +116,6 @@
 
 	.nav > li:not(:first-child) {
 		margin-left: 1.563rem;
-	}
-
-	.nav > li:not(:last-child)::after {
-		content: "|";
-		margin-left: 1.563rem;
-		width: 2px;
-		opacity: 1;
 	}
 
 	.sticky-section {
