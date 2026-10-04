@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rogene Violeta | Engineering Leadership, GoHighLevel & AI Automation Systems</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome 6 for technical & developer icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              indigo: '#4F46E5',
+              cobalt: '#2563EB',
+              emerald: '#10B981',
+              violet: '#8B5CF6',
+              amber: '#F59E0B',
+              dark: '#070B12',
+              surface: '#0B111E',
+              card: '#101828',
+              border: 'rgba(255, 255, 255, 0.08)',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 5s ease-in-out infinite',
+            'ping-slow': 'ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': {transform: 'translateY(0px)'},
+              '50%': {transform: 'translateY(-6px)'},
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #070B12;
+      color: #E2E8F0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Technical PCB / Matrix Grid Pattern */
+    .tech-grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(rgba(79, 70, 229, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px, 32px 32px, 16px 16px;
+    }
+
+    /* Dynamic ambient glows */
+    .glow-radial-indigo {
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.18) 0%, rgba(7, 11, 18, 0) 70%);
+    }
+
+    .glow-radial-emerald {
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.14) 0%, rgba(7, 11, 18, 0) 70%);
+    }
+
+    .glow-radial-violet {
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, rgba(7, 11, 18, 0) 70%);
+    }
+
+    /* Frosted glass cards */
+    .glass-panel {
+      background: rgba(11, 17, 30, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-panel-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-panel-hover:hover {
+      border-color: rgba(99, 102, 241, 0.45);
+      box-shadow: 0 12px 36px -8px rgba(79, 70, 229, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Node & Pin Connectors for Automation aesthetics */
+    .node-pin {
+      position: relative;
+    }
+
+    .node-pin::before {
+      content: '';
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    .node-pin-right::after {
+      content: '';
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4F46E5;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 8px #4F46E5;
+    }
+
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #070B12;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+
+<body class="tech-grid-bg min-h-screen relative antialiased selection:bg-brand-indigo selection:text-white">
+
+  <!-- Interactive Floating Toast for feedback -->
+  <div id="toastNotification"
+    class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div
+      class="glass-panel border-brand-emerald/40 bg-brand-surface/95 px-5 py-3.5 rounded-xl shadow-2xl flex items-center space-x-3 text-sm text-slate-100">
+      <span class="flex h-2.5 w-2.5 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+      </span>
+      <span id="toastMessage" class="font-medium font-mono text-xs text-emerald-300">Action completed
+        successfully</span>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-40 w-full border-b border-white/[0.06] bg-brand-dark/85 backdrop-blur-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <!-- Brand & Monogram -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brand-indigo via-brand-cobalt to-brand-emerald flex items-center justify-center text-white font-mono font-bold text-xs tracking-wider shadow-lg shadow-brand-indigo/30 group-hover:scale-105 transition-transform">
+          Rogene Violeta
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-bold tracking-tight text-white text-sm">Rogene Violeta</span>
+            <span
+              class="px-1.5 py-0.5 rounded text-[9px] font-mono bg-brand-indigo/20 text-brand-indigo border border-brand-indigo/30">Lead
+              Architect</span>
+          </div>
+          <span class="font-mono text-[10px] text-slate-400">Full-Stack • GoHighLevel & AI • Custom APIs</span>
+        </div>
+      </a>
+
+      <!-- Anchor Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-7 text-xs font-medium text-slate-300">
+        <a href="#core-capabilities" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="text-brand-emerald font-mono">01.</span> Capabilities
+        </a>
+        <a href="#tech-matrix" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="text-blue-400 font-mono">02.</span> Tech Stack
+        </a>
+        <a href="#loom-walkthroughs" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="text-brand-indigo font-mono">03.</span>
+          <i class="fa-solid fa-play text-[9px] text-brand-emerald"></i> Loom Demos
+        </a>
+        <a href="#live-builds" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="text-brand-violet font-mono">04.</span> Live Systems
+        </a>
+        <a href="#roi-calculator" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="text-brand-emerald font-mono">05.</span> ROI Calculator
+        </a>
+      </nav>
+
+      <!-- Action & Direct Communication Gateway -->
+      <div class="flex items-center space-x-3">
+        <!-- Live System Status indicator -->
+        <div
+          class="hidden lg:flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-card/90 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+          <span class="relative flex h-2 w-2">
+            <span
+              class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>System Active • Taking Contracts</span>
+        </div>
+
+        <!-- Direct Gmail CTA -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Full-Stack%20%26%20Automation%20Architecture%20Inquiry"
+          target="_blank" rel="noopener noreferrer"
+          class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-gradient-to-r from-brand-indigo to-brand-cobalt hover:opacity-95 text-white shadow-lg shadow-brand-indigo/30 transition-all transform active:scale-95 flex items-center gap-2">
+          <i class="fa-brands fa-google text-[11px]"></i>
+          <span>Email Me via Gmail</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-75"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden">
+      <!-- Ambient Glows -->
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[760px] h-[380px] glow-radial-indigo pointer-events-none">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-4xl mx-auto">
+
+          <!-- System Status Micro-Telemetry -->
+          <div
+            class="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border-brand-border text-slate-300 text-xs font-mono mb-6">
+            <span class="flex items-center gap-1.5 text-brand-emerald">
+              <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+              <span>GHL ECOSYSTEM</span>
+            </span>
+            <span class="text-slate-600">•</span>
+            <span class="text-brand-violet flex items-center gap-1"><i class="fa-solid fa-robot text-[10px]"></i>
+              CloseBot & Assistable.ai</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-blue-400 font-mono">Laravel / Python Backend</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-amber-400 font-mono">Make / n8n / Zapier</span>
+          </div>
+
+          <!-- Hero Headline (Updated) -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
+            Grow Your Business. <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-brand-indigo via-blue-400 to-brand-emerald">Leave
+              the Tech to Me.</span>
+          </h1>
+
+          <!-- Hero Sub-headline (Updated) -->
+          <p class="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto font-normal">
+            Combining engineering expertise, leadership background, and advanced GoHighLevel specialization, I turn
+            complex technical bottlenecks into seamless engines for client acquisition and retention.
+          </p>
+
+          <!-- Action Hub -->
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a href="#loom-walkthroughs"
+              class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-indigo to-blue-600 hover:opacity-95 text-white font-medium text-sm shadow-xl shadow-brand-indigo/25 flex items-center gap-2 transition-all">
+              <i class="fa-solid fa-circle-play text-white"></i>
+              <span>Watch Loom Architecture Demos</span>
+            </a>
+            <a href="#live-builds"
+              class="px-6 py-3 rounded-xl glass-panel glass-panel-hover text-slate-200 font-medium text-sm flex items-center gap-2">
+              <i class="fa-solid fa-network-wired text-xs text-brand-emerald"></i>
+              <span>Inspect Live Builds & Funnels</span>
+            </a>
+            <a href="#dispatch-hub"
+              class="px-6 py-3 rounded-xl border border-brand-emerald/40 bg-brand-emerald/10 hover:bg-brand-emerald/20 text-brand-emerald font-mono font-medium text-sm flex items-center gap-2 transition-all">
+              <i class="fa-brands fa-google text-xs"></i>
+              <span>Contact Directly via Gmail</span>
+            </a>
+          </div>
+
+          <!-- Production Telemetry Metrics -->
+          <div class="mt-14 pt-8 border-t border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+            <div class="glass-panel p-4 rounded-xl border-l-2 border-l-brand-emerald">
+              <div class="font-mono text-xl sm:text-2xl font-bold text-white flex items-center gap-1.5">
+                <span>&lt; 60 Sec</span>
+                <i class="fa-solid fa-bolt text-brand-emerald text-xs"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Twilio + CloseBot Inbound Response</p>
+              <span class="text-[10px] font-mono text-slate-500">Autonomous lead triage</span>
+            </div>
+
+            <div class="glass-panel p-4 rounded-xl border-l-2 border-l-brand-indigo">
+              <div class="font-mono text-xl sm:text-2xl font-bold text-white flex items-center gap-1.5">
+                <span>99.98%</span>
+                <i class="fa-solid fa-shield-halved text-brand-indigo text-xs"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Webhook & API Sync Uptime</p>
+              <span class="text-[10px] font-mono text-slate-500">Self-healing retry queues</span>
+            </div>
+
+            <div class="glass-panel p-4 rounded-xl border-l-2 border-l-brand-violet">
+              <div class="font-mono text-xl sm:text-2xl font-bold text-white">Full-Stack</div>
+              <p class="text-xs text-slate-400 mt-1">Laravel, Python, React & Node</p>
+              <span class="text-[10px] font-mono text-slate-500">Custom middleware & UI</span>
+            </div>
+
+            <div class="glass-panel p-4 rounded-xl border-l-2 border-l-amber-400">
+              <div class="font-mono text-xl sm:text-2xl font-bold text-white">CI/CD & QA</div>
+              <p class="text-xs text-slate-400 mt-1">GitHub Actions, Cypress, Postman</p>
+              <span class="text-[10px] font-mono text-slate-500">Automated end-to-end testing</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="core-capabilities" class="py-20 border-t border-white/[0.06] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span
+              class="text-xs font-mono font-bold tracking-wider uppercase text-brand-indigo flex items-center gap-1.5">
+              <i class="fa-solid fa-microchip"></i>
+              <span>CORE CAPABILITIES & LEADERSHIP</span>
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Engineered across all operational layers
+            </h2>
+            <p class="text-sm text-slate-400 mt-2 max-w-2xl">
+              From high-level technical leadership and retention funnel design to custom middleware coding, database
+              schema design, and AI bot deployment.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+            <span
+              class="px-2.5 py-1 rounded bg-brand-card border border-white/10 text-emerald-400 flex items-center gap-1">
+              <i class="fa-solid fa-code-commit text-[10px]"></i> Production Architecture
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Capability 1 -->
+          <div
+            class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden node-pin">
+            <div>
+              <div
+                class="w-11 h-11 rounded-xl bg-brand-indigo/15 border border-brand-indigo/30 flex items-center justify-center text-brand-indigo mb-5 text-lg">
+                <i class="fa-solid fa-users-gear"></i>
+              </div>
+              <h3 class="text-base font-bold text-white">Technical Leadership & Operations</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Leading multi-disciplinary dev teams, establishing CI/CD roadmaps, designing standard operating
+                procedures (SOPs), and managing complex sprints from scoping to launch.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Agile / Sprint Planning</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Git Workflow & Code Reviews</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Resource & Ops Management</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-white/[0.06] text-[10px] font-mono text-slate-500 uppercase">
+              Management & Delivery
+            </div>
+          </div>
+
+          <!-- Capability 2 -->
+          <div
+            class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden node-pin">
+            <div>
+              <div
+                class="w-11 h-11 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-5 text-lg">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="text-base font-bold text-white">GoHighLevel, Twilio & AI Bots</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Architecting sub-accounts, snapshots, custom values, and complex conversational booking bots using
+                CloseBot, Assistable.ai, Thinkrr AI, and GHL native AI.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>CloseBot & Assistable.ai Tuning</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Twilio Call & SMS Flow Routing</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Custom Fields & Attribution Logic</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-white/[0.06] text-[10px] font-mono text-blue-400 uppercase">
+              Conversational Engine
+            </div>
+          </div>
+
+          <!-- Capability 3 -->
+          <div
+            class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden node-pin">
+            <div>
+              <div
+                class="w-11 h-11 rounded-xl bg-brand-emerald/15 border border-brand-emerald/30 flex items-center justify-center text-brand-emerald mb-5 text-lg">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+              <h3 class="text-base font-bold text-white">Custom Workflow & Middleware</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Orchestrating high-volume integration scenarios in Make, n8n, and Zapier combined with custom REST API
+                and GraphQL endpoints, webhooks, and rate-limit buffering.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Make, n8n & Zapier Logic</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Google & Custom Webhooks</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Puppeteer Automation & Scrapers</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-white/[0.06] text-[10px] font-mono text-brand-emerald uppercase">
+              Idempotent Routing
+            </div>
+          </div>
+
+          <!-- Capability 4 -->
+          <div
+            class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden node-pin">
+            <div>
+              <div
+                class="w-11 h-11 rounded-xl bg-brand-violet/15 border border-brand-violet/30 flex items-center justify-center text-brand-violet mb-5 text-lg">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <h3 class="text-base font-bold text-white">Full-Stack Architecture & DevOps</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Engineering production backend systems in Laravel, PHP, Python, and Express.js with relational MySQL
+                databases, connected to React/Next.js/Vue frontends.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs text-slate-300 font-mono">
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Laravel, PHP & Python Backend</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>Next.js, React, Vue.js, Tailwind</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa-solid fa-check text-brand-emerald text-[11px]"></i>
+                  <span>GitHub Actions CI/CD & Swagger</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-white/[0.06] text-[10px] font-mono text-brand-violet uppercase">
+              Robust Codebases
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="tech-matrix" class="py-20 border-t border-white/[0.06] bg-brand-surface/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span
+            class="text-xs font-mono font-bold tracking-wider uppercase text-blue-400 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-cubes"></i>
+            <span>PRODUCTION ARSENAL</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Tech Stack & Expertise</h2>
+          <p class="text-sm text-slate-400 mt-2">
+            Every layer from CRM workflows and AI reasoning to production backend servers, reactive frontends, and
+            automated CI/CD pipelines.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+
+          <!-- Category 1: Platforms & AI Tools -->
+          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-brand-indigo/30">
+            <div class="flex items-center justify-between pb-4 border-b border-white/[0.06] mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-indigo/20 flex items-center justify-center text-brand-indigo">
+                  <i class="fa-solid fa-brain text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white">Platforms & AI Tools</h3>
+                  <p class="text-xs text-slate-400">Conversational AI agents, telephony pipelines, and CRM systems</p>
+                </div>
+              </div>
+              <span
+                class="text-[11px] font-mono px-3 py-1 rounded bg-brand-indigo/10 text-brand-indigo border border-brand-indigo/30 hidden sm:inline-block">AI
+                & Telephony</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-indigo/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-diagram-successor text-brand-indigo text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">GoHighLevel</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">CRM Architect</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-indigo/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-phone-volume text-rose-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">Twilio</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Voice / SMS API</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-indigo/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-robot text-brand-emerald text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">CloseBot</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Conversational AI</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-indigo/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-headset text-blue-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">Assistable.ai</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">AI Agents</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-indigo/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-microchip text-brand-violet text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">Thinkrr AI</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Reasoning Models</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-indigo/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">GHL AI</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Native AI Engine</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-indigo/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-brands fa-google text-red-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">Google Console</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">APIs & Cloud</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Automation & Integration -->
+          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-brand-emerald/30">
+            <div class="flex items-center justify-between pb-4 border-b border-white/[0.06] mb-6">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center text-brand-emerald">
+                  <i class="fa-solid fa-network-wired text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white">Automation & Integration</h3>
+                  <p class="text-xs text-slate-400">Multi-step iPaaS scenarios, webhook ingestion, and API middleware
+                  </p>
+                </div>
+              </div>
+              <span
+                class="text-[11px] font-mono px-3 py-1 rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/30 hidden sm:inline-block">Sync
+                & Logic</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-emerald/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-bolt text-amber-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">Zapier</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Enterprise Zaps</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-emerald/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-circle-nodes text-brand-violet text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">Make</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Integromat Flows</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-emerald/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-code-branch text-rose-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">N8N</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Self-Hosted Workflows</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-emerald/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-plug text-blue-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">REST APIs</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">CRUD Endpoints</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-emerald/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-circle-dot text-pink-400 text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">GraphQL</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Declarative Queries</span>
+              </div>
+              <div
+                class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-emerald/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-cloud-arrow-down text-brand-emerald text-xl mb-2"></i>
+                <span class="text-xs font-semibold text-slate-200">Webhooks</span>
+                <span class="text-[9px] font-mono text-slate-500 mt-0.5">Google & Custom</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Frontend Technologies -->
+          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-blue-500/30">
+            <div class="flex items-center justify-between pb-4 border-b border-white/[0.06] mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400">
+                  <i class="fa-solid fa-desktop text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white">Frontend Technologies</h3>
+                  <p class="text-xs text-slate-400">High-converting user interfaces, reactive state management, and
+                    modern styling</p>
+                </div>
+              </div>
+              <span
+                class="text-[11px] font-mono px-3 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 hidden sm:inline-block">Client
+                Interfaces</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-3">
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-brands fa-html5 text-orange-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">HTML5</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-brands fa-css3-alt text-blue-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">CSS3</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-brands fa-js text-yellow-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">JavaScript</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-code text-blue-500 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">TypeScript</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-brands fa-react text-cyan-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">React.js</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-chevron-right text-white text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">Next.js</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-brands fa-vuejs text-emerald-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">Vue.js</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-shield text-red-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">Blade</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-wind text-teal-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">Tailwind CSS</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-brands fa-bootstrap text-purple-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">Bootstrap</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-dollar-sign text-blue-300 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">jQuery</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-rotate text-emerald-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">SWR</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-database text-rose-400 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">React Query</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-cubes-stacked text-purple-500 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">Redux</span>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-blue-400/40 transition-all flex flex-col items-center text-center">
+                <i class="fa-solid fa-bear text-amber-500 text-lg mb-1.5"></i>
+                <span class="text-[11px] font-semibold text-slate-200">Zustand</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Category 4: Backend & Databases -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-brand-violet/30">
+              <div class="flex items-center justify-between pb-4 border-b border-white/[0.06] mb-6">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-brand-violet/20 flex items-center justify-center text-brand-violet">
+                    <i class="fa-solid fa-server text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-white">Backend & Databases</h3>
+                    <p class="text-xs text-slate-400">Robust server architectures & scalable data stores</p>
+                  </div>
+                </div>
+                <span
+                  class="text-[11px] font-mono px-3 py-1 rounded bg-brand-violet/10 text-brand-violet border border-brand-violet/30 hidden sm:inline-block">Core
+                  Compute</span>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div
+                  class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-violet/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-php text-indigo-400 text-xl mb-1.5"></i>
+                  <span class="text-xs font-semibold text-slate-200">PHP</span>
+                  <span class="text-[9px] font-mono text-slate-500">Core Engine</span>
+                </div>
+                <div
+                  class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-violet/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-laravel text-red-500 text-xl mb-1.5"></i>
+                  <span class="text-xs font-semibold text-slate-200">Laravel</span>
+                  <span class="text-[9px] font-mono text-slate-500">Enterprise Framework</span>
+                </div>
+                <div
+                  class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-violet/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-python text-yellow-400 text-xl mb-1.5"></i>
+                  <span class="text-xs font-semibold text-slate-200">Python</span>
+                  <span class="text-[9px] font-mono text-slate-500">Scripting & AI</span>
+                </div>
+                <div
+                  class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-violet/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-node-js text-emerald-400 text-xl mb-1.5"></i>
+                  <span class="text-xs font-semibold text-slate-200">Express.js</span>
+                  <span class="text-[9px] font-mono text-slate-500">Node APIs</span>
+                </div>
+                <div
+                  class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-violet/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-database text-blue-400 text-xl mb-1.5"></i>
+                  <span class="text-xs font-semibold text-slate-200">MySQL</span>
+                  <span class="text-[9px] font-mono text-slate-500">Relational DB</span>
+                </div>
+                <div
+                  class="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-violet/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-table text-teal-400 text-xl mb-1.5"></i>
+                  <span class="text-xs font-semibold text-slate-200">SQL</span>
+                  <span class="text-[9px] font-mono text-slate-500">Complex Queries</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category 5: Development & DevOps Tools -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-amber-500/30">
+              <div class="flex items-center justify-between pb-4 border-b border-white/[0.06] mb-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400">
+                    <i class="fa-solid fa-gears text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-white">DevOps & QA Testing</h3>
+                    <p class="text-xs text-slate-400">CI/CD automation, API debugging & testing suites</p>
+                  </div>
+                </div>
+                <span
+                  class="text-[11px] font-mono px-3 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 hidden sm:inline-block">Pipelines
+                  & CI/CD</span>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-git-alt text-orange-500 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">Git</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-github text-white text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">GitHub</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-gitlab text-orange-400 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">GitLab</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-brands fa-bitbucket text-blue-400 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">Bitbucket</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-paper-plane text-orange-400 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">Postman</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-mask text-amber-300 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">Puppeteer</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-vial-circle-check text-emerald-400 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">Cypress</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-infinity text-blue-400 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">GH Actions</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-book-open text-emerald-400 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">Swagger</span>
+                </div>
+                <div
+                  class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 transition-all flex flex-col items-center text-center">
+                  <i class="fa-solid fa-cloud text-purple-400 text-lg mb-1"></i>
+                  <span class="text-[11px] font-semibold text-slate-200">Heroku</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="loom-walkthroughs" class="py-20 border-t border-white/[0.06] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span
+              class="text-xs font-mono font-bold tracking-wider uppercase text-brand-emerald flex items-center gap-1.5">
+              <i class="fa-solid fa-play"></i>
+              <span>PROOF OF EXPERTISE</span>
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Loom Video Walkthroughs</h2>
+            <p class="text-sm text-slate-400 mt-2 max-w-2xl">
+              Real-world scenario walkthroughs diving deep into custom GoHighLevel logic, CloseBot tuning, Twilio
+              routing, and resilient API webhooks.
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap gap-2 text-xs font-mono" id="loomTabs">
+            <button onclick="switchLoom('ghl-closebot', this)"
+              class="loom-tab-btn active px-3.5 py-1.5 rounded-lg bg-brand-indigo text-white font-medium shadow-md transition-all">
+              GHL + CloseBot AI
+            </button>
+            <button onclick="switchLoom('twilio-routing', this)"
+              class="loom-tab-btn px-3.5 py-1.5 rounded-lg bg-brand-card hover:bg-slate-800 text-slate-300 font-medium border border-white/10 transition-all">
+              Twilio Call Engine
+            </button>
+            <button onclick="switchLoom('make-middleware', this)"
+              class="loom-tab-btn px-3.5 py-1.5 rounded-lg bg-brand-card hover:bg-slate-800 text-slate-300 font-medium border border-white/10 transition-all">
+              Make / n8n Webhook
+            </button>
+          </div>
+        </div>
+
+        <!-- Loom Display Card -->
+        <div class="glass-panel rounded-2xl p-6 lg:p-8 border-brand-indigo/30 relative overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <!-- Video Container / Mockup Player -->
+            <div
+              class="lg:col-span-7 rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-2xl relative group">
+              <!-- Player Aspect Ratio Container -->
+              <div
+                class="aspect-video w-full relative flex items-center justify-center bg-gradient-to-br from-slate-900 via-brand-dark to-slate-950">
+
+                <!-- Background schematic simulation -->
+                <div class="absolute inset-0 opacity-20 tech-grid-bg"></div>
+
+                <!-- Center Play Indicator -->
+                <div class="relative z-10 text-center p-6">
+                  <div
+                    class="w-16 h-16 rounded-full bg-brand-indigo/90 text-white flex items-center justify-center mx-auto mb-3 shadow-xl group-hover:scale-110 transition-transform cursor-pointer border border-white/20">
+                    <i class="fa-solid fa-play text-xl ml-1"></i>
+                  </div>
+                  <span id="loomVideoLabel"
+                    class="text-xs font-mono text-slate-300 bg-black/60 px-3 py-1 rounded-full border border-white/10">
+                    Watch Walkthrough (04:12)
+                  </span>
+                </div>
+
+                <!-- Live timeline bar -->
+                <div
+                  class="absolute bottom-0 inset-x-0 bg-slate-900/90 border-t border-white/10 px-4 py-2 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+                    <span id="loomStatusBadge">Loom Walkthrough: GHL + CloseBot AI</span>
+                  </div>
+                  <span class="text-slate-500">1080p HD • Systems Architecture</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span id="loomPillarBadge"
+                    class="text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded bg-brand-indigo/20 text-brand-indigo border border-brand-indigo/30">
+                    GHL & CONVERSATIONAL AI
+                  </span>
+                  <span id="loomTimeBadge" class="text-[10px] font-mono text-slate-400">Duration: 4m 12s</span>
+                </div>
+
+                <h3 id="loomTitle" class="text-xl font-bold text-white leading-snug">
+                  Autonomous Qualification & Booking via CloseBot and GoHighLevel
+                </h3>
+
+                <p id="loomDesc" class="text-xs text-slate-300 mt-3 leading-relaxed">
+                  Deep-dive into the custom prompt hierarchy, tag synchronizations, and webhook fallbacks that enable
+                  CloseBot to qualify high-ticket leads and book them directly into calibrated calendar slots.
+                </p>
+
+                <!-- Technical Payload Specs -->
+                <div class="mt-5 space-y-2.5">
+                  <div class="p-3 rounded-lg bg-brand-card/90 border border-white/[0.06] text-xs">
+                    <div class="text-[10px] font-mono text-slate-400 uppercase">Trigger Event & Payload</div>
+                    <div id="loomTriggerSpec" class="font-mono text-brand-emerald text-xs mt-0.5">
+                      ContactTagAdded: `bot-engage` → Twilio SMS Ingest
+                    </div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-brand-card/90 border border-white/[0.06] text-xs">
+                    <div class="text-[10px] font-mono text-slate-400 uppercase">Architecture & Integrations</div>
+                    <div id="loomStackSpec" class="font-mono text-blue-400 text-xs mt-0.5">
+                      GoHighLevel • CloseBot • Twilio • Custom Webhook
+                    </div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-brand-card/90 border border-white/[0.06] text-xs">
+                    <div class="text-[10px] font-mono text-slate-400 uppercase">Measurable Client Outcome</div>
+                    <div id="loomOutcomeSpec" class="font-mono text-emerald-300 text-xs mt-0.5">
+                      +64% calendar booking rate, zero manual SDR outreach required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Direct Loom Link Out Button -->
+              <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                <a id="loomExternalLink" href="https://www.loom.com" target="_blank" rel="noopener noreferrer"
+                  class="text-xs font-semibold text-brand-indigo hover:text-indigo-400 flex items-center gap-1.5 transition-colors">
+                  <span>Open Video in Loom</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+
+                <span class="text-[10px] font-mono text-slate-500">Verified Client Implementation</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="live-builds" class="py-20 border-t border-white/[0.06] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span
+              class="text-xs font-mono font-bold tracking-wider uppercase text-brand-violet flex items-center gap-1.5">
+              <i class="fa-solid fa-globe"></i>
+              <span>PRODUCTION SYSTEMS</span>
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Live Funnel Builds & Web Applications</h2>
+            <p class="text-sm text-slate-400 mt-2 max-w-2xl">
+              Inspect working client acquisition systems, automated booking funnels, and custom full-stack web
+              applications deployed for scale.
+            </p>
+          </div>
+
+          <div class="text-xs font-mono text-slate-400">
+            Click any project to inspect live endpoints & UX
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Project Card 1: Prophetic Night Registration -->
+          <div
+            class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between border-brand-indigo/30 relative">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="text-[10px] font-mono px-2.5 py-1 rounded bg-brand-indigo/20 text-brand-indigo border border-brand-indigo/30 font-bold uppercase">
+                  Event & Lead Engine
+                </span>
+                <span class="flex items-center gap-1 text-[11px] font-mono text-emerald-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live Production
+                </span>
+              </div>
+
+              <h3 class="text-lg font-bold text-white">WAFIF Event Registration & Acquisition Funnel</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                High-converting live event registration system with timed webhook triggers, automated email confirmation
+                sequences, and frictionless guest checkout flow.
+              </p>
+
+              <!-- Architecture Tags -->
+              <div class="flex flex-wrap gap-1.5 mt-4">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">GoHighLevel</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Timed Sequences</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Twilio SMS</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Tailwind</span>
+              </div>
+
+              <!-- ROI / Metric Pill -->
+              <div class="mt-5 p-3 rounded-xl bg-brand-surface border border-white/[0.06]">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Impact Metric</div>
+                <div class="text-xs font-mono font-semibold text-emerald-400 mt-0.5">
+                  100% deliverability on 2-min kickoff sequences • Zero dropoff
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+              <a href="https://wafifcanada.org/prophetic_night" target="_blank" rel="noopener noreferrer"
+                class="text-xs font-semibold text-white hover:text-brand-emerald flex items-center gap-2 transition-colors">
+                <span>Inspect Live Funnel</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+              <span class="text-[10px] font-mono text-slate-500">wafifcanada.org</span>
+            </div>
+          </div>
+
+          <!-- Project Card 2: Custom Client Portal & Lead Qualification -->
+          <div
+            class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between border-brand-emerald/30 relative">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="text-[10px] font-mono px-2.5 py-1 rounded bg-brand-emerald/20 text-brand-emerald border border-brand-emerald/30 font-bold uppercase">
+                  Full-Stack Portal
+                </span>
+                <span class="flex items-center gap-1 text-[11px] font-mono text-emerald-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Active API
+                </span>
+              </div>
+
+              <h3 class="text-lg font-bold text-white">Automated Client Retention & Billing Portal</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Custom full-stack Laravel & React backend synchronizing client status, subscription renewals, automated
+                Twilio dunning alerts, and GHL contact tagging.
+              </p>
+
+              <!-- Architecture Tags -->
+              <div class="flex flex-wrap gap-1.5 mt-4">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Laravel</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">MySQL</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">React.js</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">REST APIs</span>
+              </div>
+
+              <!-- ROI / Metric Pill -->
+              <div class="mt-5 p-3 rounded-xl bg-brand-surface border border-white/[0.06]">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Impact Metric</div>
+                <div class="text-xs font-mono font-semibold text-emerald-400 mt-0.5">
+                  Reduced client churn by 32% via autonomous SMS reminder queues
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-300 flex items-center gap-2">
+                <span>Enterprise Deployment</span>
+                <i class="fa-solid fa-lock text-[10px] text-slate-500"></i>
+              </span>
+              <span class="text-[10px] font-mono text-slate-500">B2B SaaS</span>
+            </div>
+          </div>
+
+          <!-- Project Card 3: Assistable.ai Multi-Location Lead Bot -->
+          <div
+            class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between border-brand-violet/30 relative">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="text-[10px] font-mono px-2.5 py-1 rounded bg-brand-violet/20 text-brand-violet border border-brand-violet/30 font-bold uppercase">
+                  Multi-Location AI
+                </span>
+                <span class="flex items-center gap-1 text-[11px] font-mono text-emerald-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 24/7 Agent
+                </span>
+              </div>
+
+              <h3 class="text-lg font-bold text-white">Healthcare & Dental Multi-Location Booking Engine</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Assistable.ai & Thinkrr AI conversational triage routing patients to local clinic calendars based on
+                insurance verification, geographic radius, and appointment urgency.
+              </p>
+
+              <!-- Architecture Tags -->
+              <div class="flex flex-wrap gap-1.5 mt-4">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Assistable.ai</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Thinkrr AI</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">GHL Snapshots</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Make.com</span>
+              </div>
+
+              <!-- ROI / Metric Pill -->
+              <div class="mt-5 p-3 rounded-xl bg-brand-surface border border-white/[0.06]">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Impact Metric</div>
+                <div class="text-xs font-mono font-semibold text-emerald-400 mt-0.5">
+                  Over 1,400 monthly patient consultations auto-booked without receptionist friction
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-300 flex items-center gap-2">
+                <span>Multi-Clinic Rollout</span>
+                <i class="fa-solid fa-hospital text-[10px] text-brand-violet"></i>
+              </span>
+              <span class="text-[10px] font-mono text-slate-500">14 Locations</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="roi-calculator" class="py-20 border-t border-white/[0.06] bg-brand-surface/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span
+            class="text-xs font-mono font-bold tracking-wider uppercase text-brand-emerald flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-calculator"></i>
+            <span>FINANCIAL JUSTIFICATION</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Estimate Your Automation ROI</h2>
+          <p class="text-sm text-slate-400 mt-2">
+            Calculate the exact capital and headcount hours reclaimed by replacing manual data entry, lead follow-ups,
+            and disconnected CRM updates with autonomous workflows.
+          </p>
+        </div>
+
+        <div class="glass-panel p-6 sm:p-10 rounded-3xl border border-brand-emerald/30 shadow-2xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+            <!-- Controls -->
+            <div class="space-y-6">
+
+              <!-- Slider 1 -->
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-2">
+                  <span class="text-slate-300">Team Members in Ops / SDR:</span>
+                  <span id="teamCountDisplay" class="text-brand-emerald font-bold">5 people</span>
+                </div>
+                <input id="teamInput" type="range" min="1" max="50" value="5"
+                  class="w-full accent-brand-emerald cursor-pointer" oninput="calculateROI()">
+                <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+                  <span>1 person</span>
+                  <span>50 people</span>
+                </div>
+              </div>
+
+              <!-- Slider 2 -->
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-2">
+                  <span class="text-slate-300">Manual Hours / Person / Week:</span>
+                  <span id="hoursCountDisplay" class="text-brand-indigo font-bold">12 hours</span>
+                </div>
+                <input id="hoursInput" type="range" min="2" max="30" value="12"
+                  class="w-full accent-brand-indigo cursor-pointer" oninput="calculateROI()">
+                <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+                  <span>2 hrs</span>
+                  <span>30 hrs</span>
+                </div>
+              </div>
+
+              <!-- Slider 3 -->
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-2">
+                  <span class="text-slate-300">Average Hourly Loaded Wage:</span>
+                  <span id="wageDisplay" class="text-brand-violet font-bold">$35 / hr</span>
+                </div>
+                <input id="wageInput" type="range" min="15" max="150" step="5" value="35"
+                  class="w-full accent-brand-violet cursor-pointer" oninput="calculateROI()">
+                <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+                  <span>$15/hr</span>
+                  <span>$150/hr</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Dynamic Computation Display -->
+            <div
+              class="bg-brand-card/90 p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between text-center relative overflow-hidden">
+              <div
+                class="absolute -top-12 -right-12 w-32 h-32 bg-brand-emerald/10 rounded-full blur-2xl pointer-events-none">
+              </div>
+
+              <div>
+                <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">ANNUAL CAPITAL SAVINGS
+                  ESTIMATE</span>
+                <div id="annualSavings"
+                  class="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-emerald via-teal-300 to-blue-400 mt-2 font-mono">
+                  $109,200
+                </div>
+                <div class="mt-4 flex items-center justify-center gap-4 text-xs font-mono text-slate-300">
+                  <div class="p-2 rounded bg-white/5 border border-white/5">
+                    <span id="annualHours" class="text-white font-bold">3,120</span> hrs saved / yr
+                  </div>
+                  <div class="p-2 rounded bg-white/5 border border-white/5">
+                    <span class="text-brand-emerald font-bold">&gt; 85%</span> error reduction
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-white/[0.06]">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Automation%20ROI%20Implementation%20Consultation"
+                  target="_blank" rel="noopener noreferrer"
+                  class="w-full block py-3 rounded-xl bg-gradient-to-r from-brand-emerald to-teal-600 hover:opacity-95 text-slate-950 font-bold text-xs font-mono tracking-wide shadow-lg shadow-brand-emerald/20 transition-all text-center">
+                  Claim These Operational Savings via Gmail →
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="dispatch-hub" class="py-20 border-t border-white/[0.06] relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div
+          class="glass-panel p-8 sm:p-12 rounded-3xl border border-brand-indigo/40 text-center relative overflow-hidden">
+          <div class="absolute -bottom-24 -left-24 w-64 h-64 glow-radial-indigo pointer-events-none"></div>
+
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-card border border-brand-indigo/30 text-xs font-mono text-brand-indigo mb-4">
+            <span class="w-2 h-2 rounded-full bg-brand-emerald animate-ping"></span>
+            <span>DIRECT GATEWAY • NO MIDDLEWARE DELAY</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to scale your business operations?
+          </h2>
+
+          <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+            Reach out directly to discuss your GoHighLevel snapshot, custom API middleware, AI conversational booking
+            bot, or full-stack software architecture.
+          </p>
+
+          <!-- Quick Intent Presets -->
+          <div class="mt-8 text-left max-w-xl mx-auto">
+            <span class="text-xs font-mono text-slate-400 block mb-2 text-center">Select an inquiry intent to pre-fill
+              your Gmail draft:</span>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=GoHighLevel%20%26%20CloseBot%20Automation%20Project&body=Hi%20RC,%0A%0AI'm%20looking%20for%20assistance%20with%20our%20GoHighLevel%20pipelines%20and%20CloseBot/Twilio%20setup.%20Here%20are%20a%20few%20details%20about%20our%20current%20bottleneck:%0A"
+                target="_blank" rel="noopener noreferrer"
+                class="p-3 rounded-xl bg-white/[0.03] hover:bg-brand-indigo/20 border border-white/10 hover:border-brand-indigo/50 transition-all text-center group">
+                <i
+                  class="fa-solid fa-robot text-brand-indigo text-sm mb-1 group-hover:scale-110 transition-transform"></i>
+                <div class="text-xs font-medium text-white">GHL & AI Bots</div>
+                <div class="text-[10px] font-mono text-slate-400 mt-0.5">Preset Draft →</div>
+              </a>
+
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Make.com%20%2F%20n8n%20Webhook%20Integration%20Inquiry&body=Hi%20RC,%0A%0AWe%20need%20custom%20webhook%20and%20integration%20architecture%20between%20our%20systems.%20Here%20is%20what%20we%20are%20connecting:%0A"
+                target="_blank" rel="noopener noreferrer"
+                class="p-3 rounded-xl bg-white/[0.03] hover:bg-brand-emerald/20 border border-white/10 hover:border-brand-emerald/50 transition-all text-center group">
+                <i
+                  class="fa-solid fa-network-wired text-brand-emerald text-sm mb-1 group-hover:scale-110 transition-transform"></i>
+                <div class="text-xs font-medium text-white">Make / n8n Sync</div>
+                <div class="text-[10px] font-mono text-slate-400 mt-0.5">Preset Draft →</div>
+              </a>
+
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Full-Stack%20System%20Architecture%20Inquiry&body=Hi%20RC,%0A%0AI'm%20reaching%20out%20regarding%20a%20full-stack%20software%20project%20(Laravel%20/%20Python%20/%20React).%20Let's%20discuss%20architecture%20and%20availability.%0A"
+                target="_blank" rel="noopener noreferrer"
+                class="p-3 rounded-xl bg-white/[0.03] hover:bg-brand-violet/20 border border-white/10 hover:border-brand-violet/50 transition-all text-center group">
+                <i
+                  class="fa-solid fa-code text-brand-violet text-sm mb-1 group-hover:scale-110 transition-transform"></i>
+                <div class="text-xs font-medium text-white">Full-Stack Dev</div>
+                <div class="text-[10px] font-mono text-slate-400 mt-0.5">Preset Draft →</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Master Gmail CTA -->
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Full-Stack%20%26%20Automation%20Architecture%20Inquiry"
+              target="_blank" rel="noopener noreferrer"
+              class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-indigo via-blue-600 to-brand-emerald hover:opacity-95 text-white font-bold text-sm shadow-xl shadow-brand-indigo/30 flex items-center gap-2.5 transition-all transform active:scale-95">
+              <i class="fa-brands fa-google text-base"></i>
+              <span>Compose Message in Gmail</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+            </a>
+
+            <button onclick="copyEmailToClipboard()"
+              class="px-6 py-4 rounded-xl glass-panel glass-panel-hover text-slate-200 font-mono text-xs flex items-center gap-2">
+              <i class="fa-regular fa-copy text-brand-emerald"></i>
+              <span>Copy rcvioleta13@gmail.com</span>
+            </button>
+          </div>
+
+          <p class="text-[11px] font-mono text-slate-500 mt-6">
+            Guaranteed response time within 24 business hours • NDAs accepted prior to codebase review
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/[0.06] bg-brand-dark py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <div class="flex items-center space-x-3">
+        <div
+          class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-indigo to-brand-emerald flex items-center justify-center text-white font-mono font-bold text-xs">
+          Rogene Violeta
+        </div>
+        <div class="text-left">
+          <div class="text-xs font-bold text-white">Rogene Violeta</div>
+          <div class="text-[10px] font-mono text-slate-500">Full-Stack Architect • GoHighLevel & AI Automations</div>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-6 text-xs font-mono text-slate-400">
+        <a href="#core-capabilities" class="hover:text-white transition-colors">Capabilities</a>
+        <a href="#tech-matrix" class="hover:text-white transition-colors">Stack</a>
+        <a href="#loom-walkthroughs" class="hover:text-white transition-colors">Loom Demos</a>
+        <a href="#live-builds" class="hover:text-white transition-colors">Live Builds</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com" target="_blank"
+          rel="noopener noreferrer" class="text-brand-emerald hover:underline">rcvioleta13@gmail.com</a>
+      </div>
+
+      <div class="text-[11px] font-mono text-slate-600">
+        &copy; 2026 Rogene Violeta. All systems operational.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Loom Showcase Data Dictionary
+    const loomData = {
+      'ghl-closebot': {
+        title: 'Autonomous Qualification & Booking via CloseBot and GoHighLevel',
+        desc: 'Deep-dive into the custom prompt hierarchy, tag synchronizations, and webhook fallbacks that enable CloseBot to qualify high-ticket leads and book them directly into calibrated calendar slots.',
+        duration: 'Duration: 4m 12s',
+        badge: 'GHL & CONVERSATIONAL AI',
+        trigger: 'ContactTagAdded: `bot-engage` → Twilio SMS Ingest',
+        stack: 'GoHighLevel • CloseBot • Twilio • Custom Webhook',
+        outcome: '+64% calendar booking rate, zero manual SDR outreach required',
+        status: 'Loom Walkthrough: GHL + CloseBot AI'
+      },
+      'twilio-routing': {
+        title: 'Twilio Voice IVR & Smart Failover Inbound Call Routing',
+        desc: 'Architecture walkthrough of a resilient Twilio IVR studio flow with real-time whisper alerts, automated missed-call text back sequences, and sub-account rep assignment.',
+        duration: 'Duration: 5m 45s',
+        badge: 'TELEPHONY & INFRASTRUCTURE',
+        trigger: 'InboundCall: DID Webhook → IVR Studio Decision Matrix',
+        stack: 'Twilio Voice • GoHighLevel • Make.com • Webhooks',
+        outcome: '99.4% call resolution; sub-60 second lead capture on missed calls',
+        status: 'Loom Walkthrough: Twilio IVR & Call Flow'
+      },
+      'make-middleware': {
+        title: 'High-Volume Make & n8n Idempotent Webhook Buffer',
+        desc: 'Technical review of custom API routing scenarios handling payload transformation, deduplication with Redis cache keys, and automated Slack operational incident dispatching.',
+        duration: 'Duration: 6m 18s',
+        badge: 'API & MIDDLEWARE',
+        trigger: 'Custom Webhook: OnPaymentSuccess → Idempotency Check',
+        stack: 'Make.com • n8n • Python Script • REST APIs • Stripe',
+        outcome: 'Processed 180,000+ flawless payload syncs with zero duplicate records',
+        status: 'Loom Walkthrough: Make / n8n Webhook Pipeline'
+      }
+    };
+
+    // Loom Scenario Tab Switcher
+    function switchLoom(scenarioKey, btnElement) {
+      const data = loomData[scenarioKey];
+      if (!data) return;
+
+      // Update button styling
+      document.querySelectorAll('.loom-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-indigo', 'text-white');
+        btn.classList.add('bg-brand-card', 'text-slate-300');
+      });
+      btnElement.classList.add('bg-brand-indigo', 'text-white');
+      btnElement.classList.remove('bg-brand-card', 'text-slate-300');
+
+      // Update video player text
+      document.getElementById('loomVideoLabel').textContent = `Watch Walkthrough (${data.duration.split(': ')[1]})`;
+      document.getElementById('loomStatusBadge').textContent = data.status;
+
+      // Update metadata content
+      document.getElementById('loomPillarBadge').textContent = data.badge;
+      document.getElementById('loomTimeBadge').textContent = data.duration;
+      document.getElementById('loomTitle').textContent = data.title;
+      document.getElementById('loomDesc').textContent = data.desc;
+      document.getElementById('loomTriggerSpec').textContent = data.trigger;
+      document.getElementById('loomStackSpec').textContent = data.stack;
+      document.getElementById('loomOutcomeSpec').textContent = data.outcome;
+    }
+
+    // Dynamic ROI Calculator
+    function calculateROI() {
+      const team = parseInt(document.getElementById('teamInput').value, 10);
+      const hours = parseInt(document.getElementById('hoursInput').value, 10);
+      const wage = parseInt(document.getElementById('wageInput').value, 10);
+
+      // Label Updates
+      document.getElementById('teamCountDisplay').textContent = `${team} ${team === 1 ? 'person' : 'people'}`;
+      document.getElementById('hoursCountDisplay').textContent = `${hours} hours`;
+      document.getElementById('wageDisplay').textContent = `$${wage} / hr`;
+
+      // 52 weeks in a year
+      const totalHoursSaved = team * hours * 52;
+      const totalCapitalSaved = totalHoursSaved * wage;
+
+      // Formatted output
+      document.getElementById('annualSavings').textContent = `$${totalCapitalSaved.toLocaleString()}`;
+      document.getElementById('annualHours').textContent = totalHoursSaved.toLocaleString();
+    }
+
+    // Clipboard Copy Helper for Email
+    function copyEmailToClipboard() {
+      const email = 'rcvioleta13@gmail.com';
+      const tempInput = document.createElement('input');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      showToast(`Copied ${email} to clipboard!`);
+    }
+
+    // Toast Notification System
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // Initialize state on window load
+    window.onload = function () {
+      calculateROI();
+    };
+  </script>
+</body>
+
+</html>
