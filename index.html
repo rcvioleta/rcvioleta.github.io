@@ -136,6 +136,33 @@
       box-shadow: 0 0 8px #4F46E5;
     }
 
+    /* Testimonial slider track & pause animations */
+    .testimonial-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ticker-container:hover .ticker-marquee {
+      animation-play-state: paused !important;
+    }
+
+    @keyframes scrollTicker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee-slow {
+      display: flex;
+      width: max-content;
+      animation: scrollTicker 45s linear infinite;
+    }
+
     /* Custom scrollbars */
     ::-webkit-scrollbar {
       width: 7px;
@@ -180,7 +207,7 @@
       <a href="#" class="flex items-center space-x-3 group">
         <div
           class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brand-indigo via-brand-cobalt to-brand-emerald flex items-center justify-center text-white font-mono font-bold text-xs tracking-wider shadow-lg shadow-brand-indigo/30 group-hover:scale-105 transition-transform">
-          Rogene Violeta
+          RV
         </div>
         <div class="flex flex-col">
           <div class="flex items-center gap-2">
@@ -194,7 +221,7 @@
       </a>
 
       <!-- Anchor Navigation Links -->
-      <nav class="hidden md:flex items-center space-x-7 text-xs font-medium text-slate-300">
+      <nav class="hidden md:flex items-center space-x-6 text-xs font-medium text-slate-300">
         <a href="#core-capabilities" class="hover:text-white transition-colors flex items-center gap-1.5">
           <span class="text-brand-emerald font-mono">01.</span> Capabilities
         </a>
@@ -202,14 +229,17 @@
           <span class="text-blue-400 font-mono">02.</span> Tech Stack
         </a>
         <a href="#loom-walkthroughs" class="hover:text-white transition-colors flex items-center gap-1.5">
-          <span class="text-brand-indigo font-mono">03.</span>
-          <i class="fa-solid fa-play text-[9px] text-brand-emerald"></i> Loom Demos
+          <span class="text-brand-indigo font-mono">03.</span> Loom Demos
+        </a>
+        <a href="#testimonials" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="text-emerald-400 font-mono">04.</span>
+          <i class="fa-solid fa-star text-[9px] text-amber-400"></i> Reviews
         </a>
         <a href="#live-builds" class="hover:text-white transition-colors flex items-center gap-1.5">
-          <span class="text-brand-violet font-mono">04.</span> Live Systems
+          <span class="text-brand-violet font-mono">05.</span> Live Systems
         </a>
         <a href="#roi-calculator" class="hover:text-white transition-colors flex items-center gap-1.5">
-          <span class="text-brand-emerald font-mono">05.</span> ROI Calculator
+          <span class="text-brand-emerald font-mono">06.</span> ROI Calculator
         </a>
       </nav>
 
@@ -880,7 +910,7 @@
 
       </div>
     </section>
-
+    <!-- Loom Video Walkthroughs Section -->
     <section id="loom-walkthroughs" class="py-20 border-t border-white/[0.06] relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -1011,6 +1041,340 @@
             </div>
 
           </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Real Client Testimonials Slider (Pauses on Hover) -->
+    <section id="testimonials" class="py-20 border-t border-white/[0.06] bg-brand-surface/40 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span
+              class="text-xs font-mono font-bold tracking-wider uppercase text-emerald-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-comment-dots"></i>
+              <span>VERIFIED CLIENT RATINGS & FEEDBACK</span>
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Direct Feedback on My Work</h2>
+            <p class="text-sm text-slate-400 mt-2 max-w-2xl">
+              Real ratings received from founders, doctors, and team leads on AI agent architecture, complex workflows,
+              quick troubleshooting, and hands-on GoHighLevel delivery.
+            </p>
+          </div>
+
+          <!-- Carousel Controls & Status -->
+          <div class="flex items-center gap-3">
+            <span
+              class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+              <i class="fa-solid fa-circle-check text-xs"></i> 100% Positive (3/3 Score)
+            </span>
+            <div class="flex items-center gap-2">
+              <button onclick="prevTestimonial()" aria-label="Previous review"
+                class="w-9 h-9 rounded-lg glass-panel hover:bg-slate-800 text-slate-200 border border-white/10 flex items-center justify-center transition-all hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button onclick="nextTestimonial()" aria-label="Next review"
+                class="w-9 h-9 rounded-lg glass-panel hover:bg-slate-800 text-slate-200 border border-white/10 flex items-center justify-center transition-all hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Slider Viewport (Pauses on Hover) -->
+        <div id="sliderViewport" class="relative overflow-hidden rounded-2xl p-1" onmouseenter="pauseTestimonials()"
+          onmouseleave="resumeTestimonials()">
+          <div id="testimonialSliderTrack" class="testimonial-track py-2">
+
+            <!-- Card 1: Truman Hooker -->
+            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+              <div
+                class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 mb-3 font-mono">
+                    <span class="font-medium text-slate-600">Jun 4 (3 months ago)</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified
+                      Review</span>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div
+                      class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                      <i class="fa-regular fa-face-smile text-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                        Truman Hooker <span class="font-medium text-emerald-800 text-xs sm:text-sm">has left a positive
+                          rating (3 on scale from 1 to 3) of Rog</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mt-3 pl-11">
+                    "Rog has been the best support person I've worked with. He responds quickly, is very patient, and
+                    always goes the extra mile to help. He helped me solve my AI agent issues, set up automations, build
+                    funnels, create complex workflows, and even provided tutorials to make everything easier to
+                    understand. Really appreciate all the help. Rog is knowledgeable, reliable, and an absolute asset to
+                    the team."
+                  </p>
+                </div>
+
+                <div
+                  class="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-between text-[11px] font-mono text-slate-600 pl-11">
+                  <span class="text-emerald-700 font-semibold">AI Agents • Funnels • Complex Workflows</span>
+                  <span class="text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i
+                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Heather Sewczak -->
+            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+              <div
+                class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 mb-3 font-mono">
+                    <span class="font-medium text-slate-600">today 11:24 (now)</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified
+                      Review</span>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div
+                      class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                      <i class="fa-regular fa-face-smile text-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                        Heather Sewczak <span class="font-medium text-emerald-800 text-xs sm:text-sm">has left a
+                          positive rating (3 on scale from 1 to 3) of Rog</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mt-3 pl-11">
+                    <span class="font-medium text-slate-800">Reviewer left a comment:</span> very helpful and thorough,
+                    good proactive advice that wasn't exactly my issue but related and he noticed. thank you
+                  </p>
+                </div>
+
+                <div
+                  class="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-between text-[11px] font-mono text-slate-600 pl-11">
+                  <span class="text-emerald-700 font-semibold">Proactive Guidance & Troubleshooting</span>
+                  <span class="text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i
+                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Tara Kendrick -->
+            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+              <div
+                class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 mb-3 font-mono">
+                    <span class="font-medium text-slate-600">Jul 10 (2 months ago)</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified
+                      Review</span>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div
+                      class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                      <i class="fa-regular fa-face-smile text-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                        Tara Kendrick <span class="font-medium text-emerald-800 text-xs sm:text-sm">has left a positive
+                          rating (3 on scale from 1 to 3) of Rog</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mt-3 pl-11">
+                    "He was the best agent I have used so far. Super knowledgeable and willing to help make changes on
+                    my behalf instead of making things confusing. Hope to get him again!"
+                  </p>
+                </div>
+
+                <div
+                  class="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-between text-[11px] font-mono text-slate-600 pl-11">
+                  <span class="text-emerald-700 font-semibold">Hands-on Implementation & Clarity</span>
+                  <span class="text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i
+                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Andrew Defee -->
+            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+              <div
+                class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 mb-3 font-mono">
+                    <span class="font-medium text-slate-600">May 28 (4 months ago)</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified
+                      Review</span>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div
+                      class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                      <i class="fa-regular fa-face-smile text-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                        Andrew Defee <span class="font-medium text-emerald-800 text-xs sm:text-sm">has left a positive
+                          rating (3 on scale from 1 to 3) of Rog</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mt-3 pl-11">
+                    "Rog was quick and efficient with taking care of the issue, while still remaining personable and
+                    warm. Was a good experience overall."
+                  </p>
+                </div>
+
+                <div
+                  class="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-between text-[11px] font-mono text-slate-600 pl-11">
+                  <span class="text-emerald-700 font-semibold">Efficient Resolution & Communication</span>
+                  <span class="text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i
+                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Dr. Brian -->
+            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+              <div
+                class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 mb-3 font-mono">
+                    <span class="font-medium text-slate-600">Aug 10 (53 days ago)</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified
+                      Review</span>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div
+                      class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                      <i class="fa-regular fa-face-smile text-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                        Dr. Brian <span class="font-medium text-emerald-800 text-xs sm:text-sm">has left a positive
+                          rating (3 on scale from 1 to 3) of Rog</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mt-3 pl-11">
+                    "great support as always!"
+                  </p>
+                </div>
+
+                <div
+                  class="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-between text-[11px] font-mono text-slate-600 pl-11">
+                  <span class="text-emerald-700 font-semibold">Continuous Technical Reliability</span>
+                  <span class="text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i
+                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Maria Murray -->
+            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+              <div
+                class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 mb-3 font-mono">
+                    <span class="font-medium text-slate-600">Jan 2 (8 months ago)</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified
+                      Review</span>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div
+                      class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                      <i class="fa-regular fa-face-smile text-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                        Maria Murray <span class="font-medium text-emerald-800 text-xs sm:text-sm">has left a positive
+                          rating (3 on scale from 1 to 3) of Rog</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mt-3 pl-11">
+                    "He was great! Clear and easy to work with. I appreciated his ideas and action."
+                  </p>
+                </div>
+
+                <div
+                  class="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-between text-[11px] font-mono text-slate-600 pl-11">
+                  <span class="text-emerald-700 font-semibold">Action-Oriented Execution</span>
+                  <span class="text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i
+                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7: Erez Avramov -->
+            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+              <div
+                class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-slate-500 mb-3 font-mono">
+                    <span class="font-medium text-slate-600">Jul 17 (2 months ago)</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified
+                      Review</span>
+                  </div>
+
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div
+                      class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                      <i class="fa-regular fa-face-smile text-lg"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                        Erez Avramov <span class="font-medium text-emerald-800 text-xs sm:text-sm">has left a positive
+                          rating (3 on scale from 1 to 3) of Rog</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mt-3 pl-11">
+                    "fast and professional support"
+                  </p>
+                </div>
+
+                <div
+                  class="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-between text-[11px] font-mono text-slate-600 pl-11">
+                  <span class="text-emerald-700 font-semibold">Speed & Professionalism</span>
+                  <span class="text-amber-500 flex gap-0.5"><i class="fa-solid fa-star"></i><i
+                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Slider Progress Indicator / Pagination Dots -->
+        <div class="flex items-center justify-center gap-2 mt-6" id="testimonialDots">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Interactive note -->
+        <div class="text-center mt-3">
+          <span class="text-[11px] font-mono text-slate-500 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-hand-pointer text-[10px] text-emerald-400"></i> Hover over any card to pause
+            auto-slide
+          </span>
         </div>
 
       </div>
@@ -1318,7 +1682,7 @@
               your Gmail draft:</span>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=GoHighLevel%20%26%20CloseBot%20Automation%20Project&body=Hi%20RC,%0A%0AI'm%20looking%20for%20assistance%20with%20our%20GoHighLevel%20pipelines%20and%20CloseBot/Twilio%20setup.%20Here%20are%20a%20few%20details%20about%20our%20current%20bottleneck:%0A"
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=GoHighLevel%20%26%20CloseBot%20Automation%20Project&body=Hi%20Rogene,%0A%0AI'm%20looking%20for%20assistance%20with%20our%20GoHighLevel%20pipelines%20and%20CloseBot/Twilio%20setup.%20Here%20are%20a%20few%20details%20about%20our%20current%20bottleneck:%0A"
                 target="_blank" rel="noopener noreferrer"
                 class="p-3 rounded-xl bg-white/[0.03] hover:bg-brand-indigo/20 border border-white/10 hover:border-brand-indigo/50 transition-all text-center group">
                 <i
@@ -1327,7 +1691,7 @@
                 <div class="text-[10px] font-mono text-slate-400 mt-0.5">Preset Draft →</div>
               </a>
 
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Make.com%20%2F%20n8n%20Webhook%20Integration%20Inquiry&body=Hi%20RC,%0A%0AWe%20need%20custom%20webhook%20and%20integration%20architecture%20between%20our%20systems.%20Here%20is%20what%20we%20are%20connecting:%0A"
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Make.com%20%2F%20n8n%20Webhook%20Integration%20Inquiry&body=Hi%20Rogene,%0A%0AWe%20need%20custom%20webhook%20and%20integration%20architecture%20between%20our%20systems.%20Here%20is%20what%20we%20are%20connecting:%0A"
                 target="_blank" rel="noopener noreferrer"
                 class="p-3 rounded-xl bg-white/[0.03] hover:bg-brand-emerald/20 border border-white/10 hover:border-brand-emerald/50 transition-all text-center group">
                 <i
@@ -1336,7 +1700,7 @@
                 <div class="text-[10px] font-mono text-slate-400 mt-0.5">Preset Draft →</div>
               </a>
 
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Full-Stack%20System%20Architecture%20Inquiry&body=Hi%20RC,%0A%0AI'm%20reaching%20out%20regarding%20a%20full-stack%20software%20project%20(Laravel%20/%20Python%20/%20React).%20Let's%20discuss%20architecture%20and%20availability.%0A"
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Full-Stack%20System%20Architecture%20Inquiry&body=Hi%20Rogene,%0A%0AI'm%20reaching%20out%20regarding%20a%20full-stack%20software%20project%20(Laravel%20/%20Python%20/%20React).%20Let's%20discuss%20architecture%20and%20availability.%0A"
                 target="_blank" rel="noopener noreferrer"
                 class="p-3 rounded-xl bg-white/[0.03] hover:bg-brand-violet/20 border border-white/10 hover:border-brand-violet/50 transition-all text-center group">
                 <i
@@ -1380,7 +1744,7 @@
       <div class="flex items-center space-x-3">
         <div
           class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-indigo to-brand-emerald flex items-center justify-center text-white font-mono font-bold text-xs">
-          Rogene Violeta
+          RV
         </div>
         <div class="text-left">
           <div class="text-xs font-bold text-white">Rogene Violeta</div>
@@ -1392,6 +1756,7 @@
         <a href="#core-capabilities" class="hover:text-white transition-colors">Capabilities</a>
         <a href="#tech-matrix" class="hover:text-white transition-colors">Stack</a>
         <a href="#loom-walkthroughs" class="hover:text-white transition-colors">Loom Demos</a>
+        <a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a>
         <a href="#live-builds" class="hover:text-white transition-colors">Live Builds</a>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com" target="_blank"
           rel="noopener noreferrer" class="text-brand-emerald hover:underline">rcvioleta13@gmail.com</a>
@@ -1499,6 +1864,75 @@
       showToast(`Copied ${email} to clipboard!`);
     }
 
+    // Testimonial Carousel State & Logic
+    let currentSlide = 0;
+    let slideInterval = null;
+    const totalSlides = 7;
+
+    function getCardWidth() {
+      const firstCard = document.querySelector('#testimonialSliderTrack > div');
+      if (!firstCard) return 500;
+      const gap = 24; // 1.5rem gap
+      return firstCard.offsetWidth + gap;
+    }
+
+    function updateSliderPosition() {
+      const track = document.getElementById('testimonialSliderTrack');
+      const offset = currentSlide * getCardWidth();
+      track.style.transform = `translateX(-${offset}px)`;
+
+      // Update dots
+      renderDots();
+    }
+
+    function nextTestimonial() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSliderPosition();
+    }
+
+    function prevTestimonial() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSliderPosition();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSliderPosition();
+    }
+
+    function startAutoSlide() {
+      if (slideInterval) clearInterval(slideInterval);
+      slideInterval = setInterval(() => {
+        nextTestimonial();
+      }, 4000);
+    }
+
+    function pauseTestimonials() {
+      if (slideInterval) clearInterval(slideInterval);
+    }
+
+    function resumeTestimonials() {
+      startAutoSlide();
+    }
+
+    function renderDots() {
+      const dotsContainer = document.getElementById('testimonialDots');
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-7 bg-emerald-400' : 'w-2 bg-white/20 hover:bg-white/40'}`;
+        dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    // Handle responsive resize for card width calculations
+    window.addEventListener('resize', () => {
+      updateSliderPosition();
+    });
+
     // Toast Notification System
     function showToast(message) {
       const toast = document.getElementById('toastNotification');
@@ -1517,6 +1951,8 @@
     // Initialize state on window load
     window.onload = function () {
       calculateROI();
+      renderDots();
+      startAutoSlide();
     };
   </script>
 </body>
