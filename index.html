@@ -945,132 +945,146 @@
 
       </div>
     </section>
-    <!-- Loom Video Walkthroughs Section -->
+    <!-- Video Walkthroughs Section (Native HTML5 MP4 Player) -->
     <section id="loom-walkthroughs" class="py-20 border-t border-white/[0.06] relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
             <span
               class="text-xs font-mono font-bold tracking-wider uppercase text-brand-emerald flex items-center gap-1.5">
               <i class="fa-solid fa-play"></i>
-              <span>PROOF OF EXPERTISE</span>
+              <span>PROOF OF ENGINEERING EXPERTISE</span>
             </span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Loom Video Walkthroughs</h2>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Real Client Systems Walkthroughs</h2>
             <p class="text-sm text-slate-400 mt-2 max-w-2xl">
-              Real-world scenario walkthroughs diving deep into custom GoHighLevel logic, CloseBot tuning, Twilio
-              routing, and resilient API webhooks.
+              Inspect real-world walkthroughs showcasing how custom code, AI extractors, Claude MCP servers, and
+              multi-tier webhook logic bypass platform bottlenecks.
             </p>
           </div>
 
-          <!-- Category Filter Tabs -->
-          <div class="flex flex-wrap gap-2 text-xs font-mono" id="loomTabs">
-            <button onclick="switchLoom('ghl-closebot', this)"
-              class="loom-tab-btn active px-3.5 py-1.5 rounded-lg bg-brand-indigo text-white font-medium shadow-md transition-all">
-              GHL + CloseBot AI
-            </button>
-            <button onclick="switchLoom('twilio-routing', this)"
-              class="loom-tab-btn px-3.5 py-1.5 rounded-lg bg-brand-card hover:bg-slate-800 text-slate-300 font-medium border border-white/10 transition-all">
-              Twilio Call Engine
-            </button>
-            <button onclick="switchLoom('make-middleware', this)"
-              class="loom-tab-btn px-3.5 py-1.5 rounded-lg bg-brand-card hover:bg-slate-800 text-slate-300 font-medium border border-white/10 transition-all">
-              Make / n8n Webhook
-            </button>
+          <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+            <span
+              class="px-3 py-1.5 rounded-lg bg-brand-surface border border-white/10 text-emerald-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-film text-xs"></i> 5 Production Walkthroughs
+            </span>
           </div>
         </div>
 
-        <!-- Loom Display Card -->
+        <!-- Walkthrough Selector Tabs (5 Real Videos) -->
+        <div class="flex flex-wrap gap-2 mb-6" id="videoTabs">
+          <button onclick="switchVideo('smart-reminders', this)"
+            class="video-tab-btn active px-3.5 py-2 rounded-xl bg-brand-indigo text-white font-medium text-xs shadow-md transition-all flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check text-[11px]"></i>
+            <span>Smart Reminders & Code</span>
+          </button>
+          <button onclick="switchVideo('recurring-events', this)"
+            class="video-tab-btn px-3.5 py-2 rounded-xl bg-brand-surface hover:bg-slate-800 text-slate-300 font-medium text-xs border border-white/10 transition-all flex items-center gap-2">
+            <i class="fa-solid fa-arrows-rotate text-[11px]"></i>
+            <span>Recurring Event Logic</span>
+          </button>
+          <button onclick="switchVideo('voice-ai-tools', this)"
+            class="video-tab-btn px-3.5 py-2 rounded-xl bg-brand-surface hover:bg-slate-800 text-slate-300 font-medium text-xs border border-white/10 transition-all flex items-center gap-2">
+            <i class="fa-solid fa-robot text-[11px]"></i>
+            <span>Voice AI & Call Routing</span>
+          </button>
+          <button onclick="switchVideo('email-ai-parser', this)"
+            class="video-tab-btn px-3.5 py-2 rounded-xl bg-brand-surface hover:bg-slate-800 text-slate-300 font-medium text-xs border border-white/10 transition-all flex items-center gap-2">
+            <i class="fa-solid fa-envelope-open-text text-[11px]"></i>
+            <span>AI Email Parser</span>
+          </button>
+          <button onclick="switchVideo('crm-mcp-claude', this)"
+            class="video-tab-btn px-3.5 py-2 rounded-xl bg-brand-surface hover:bg-slate-800 text-slate-300 font-medium text-xs border border-white/10 transition-all flex items-center gap-2">
+            <i class="fa-solid fa-server text-[11px]"></i>
+            <span>Claude MCP Integration</span>
+          </button>
+        </div>
+
+        <!-- Video Player & Specification Display Card -->
         <div class="glass-panel rounded-2xl p-6 lg:p-8 border-brand-indigo/30 relative overflow-hidden">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-            <!-- Video Container / Mockup Player -->
+            <!-- Video Container (HTML5 Native .mp4 Player) -->
             <div
-              class="lg:col-span-7 rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-2xl relative group">
-              <!-- Player Aspect Ratio Container -->
+              class="lg:col-span-7 rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-2xl relative">
+              <div class="aspect-video w-full bg-black relative flex items-center justify-center">
+                <video id="walkthroughVideoPlayer" class="w-full h-full object-contain" controls preload="metadata"
+                  poster="">
+                  <source id="walkthroughVideoSource" src="videos/smart-appointment-reminders.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <!-- Technical Status Footer Bar -->
               <div
-                class="aspect-video w-full relative flex items-center justify-center bg-gradient-to-br from-slate-900 via-brand-dark to-slate-950">
-
-                <!-- Background schematic simulation -->
-                <div class="absolute inset-0 opacity-20 tech-grid-bg"></div>
-
-                <!-- Center Play Indicator -->
-                <div class="relative z-10 text-center p-6">
-                  <div
-                    class="w-16 h-16 rounded-full bg-brand-indigo/90 text-white flex items-center justify-center mx-auto mb-3 shadow-xl group-hover:scale-110 transition-transform cursor-pointer border border-white/20">
-                    <i class="fa-solid fa-play text-xl ml-1"></i>
-                  </div>
-                  <span id="loomVideoLabel"
-                    class="text-xs font-mono text-slate-300 bg-black/60 px-3 py-1 rounded-full border border-white/10">
-                    Watch Walkthrough (04:12)
-                  </span>
+                class="bg-slate-900/90 border-t border-white/10 px-4 py-2.5 flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-400 gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+                  <span id="videoPathLabel" class="text-slate-300">Target: videos/smart-appointment-reminders.mp4</span>
                 </div>
-
-                <!-- Live timeline bar -->
-                <div
-                  class="absolute bottom-0 inset-x-0 bg-slate-900/90 border-t border-white/10 px-4 py-2 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
-                    <span id="loomStatusBadge">Loom Walkthrough: GHL + CloseBot AI</span>
-                  </div>
-                  <span class="text-slate-500">1080p HD • Systems Architecture</span>
-                </div>
+                <span class="text-slate-500">1080p HD • Client Walkthrough Session</span>
               </div>
             </div>
 
-            <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+            <!-- Video Deep Dive & Systems Breakdown -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
               <div>
-                <div class="flex items-center gap-2 mb-3">
-                  <span id="loomPillarBadge"
+                <div class="flex items-center gap-2 mb-2.5">
+                  <span id="videoCategoryBadge"
                     class="text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded bg-brand-indigo/20 text-brand-indigo border border-brand-indigo/30">
-                    GHL & CONVERSATIONAL AI
+                    WORKFLOW AUTOMATION & CUSTOM CODE
                   </span>
-                  <span id="loomTimeBadge" class="text-[10px] font-mono text-slate-400">Duration: 4m 12s</span>
+                  <span id="videoTagBadge" class="text-[10px] font-mono text-slate-400">Client Delivery</span>
                 </div>
 
-                <h3 id="loomTitle" class="text-xl font-bold text-white leading-snug">
-                  Autonomous Qualification & Booking via CloseBot and GoHighLevel
+                <h3 id="videoTitle" class="text-xl font-bold text-white leading-snug">
+                  Bypassing Native Platform Limits: Smart Appointment Reminders & Custom Notification Sequences
                 </h3>
 
-                <p id="loomDesc" class="text-xs text-slate-300 mt-3 leading-relaxed">
-                  Deep-dive into the custom prompt hierarchy, tag synchronizations, and webhook fallbacks that enable
-                  CloseBot to qualify high-ticket leads and book them directly into calibrated calendar slots.
+                <p id="videoDesc" class="text-xs text-slate-300 mt-3 leading-relaxed">
+                  A client walkthrough demonstrating a custom appointment workflow built to bypass native platform
+                  limitations. Explore how the system filters tags, evaluates booking days, and uses custom code to
+                  execute precise reminder sequences.
                 </p>
 
-                <!-- Technical Payload Specs -->
-                <div class="mt-5 space-y-2.5">
+                <!-- Technical Specs Breakdown -->
+                <div class="mt-4 space-y-2">
                   <div class="p-3 rounded-lg bg-brand-card/90 border border-white/[0.06] text-xs">
-                    <div class="text-[10px] font-mono text-slate-400 uppercase">Trigger Event & Payload</div>
-                    <div id="loomTriggerSpec" class="font-mono text-brand-emerald text-xs mt-0.5">
-                      ContactTagAdded: `bot-engage` → Twilio SMS Ingest
+                    <div class="text-[10px] font-mono text-slate-400 uppercase">Core Solution & Logic</div>
+                    <div id="videoLogicSpec" class="font-mono text-brand-emerald text-xs mt-0.5">
+                      Dynamic day evaluation & custom JavaScript code execution
                     </div>
                   </div>
 
                   <div class="p-3 rounded-lg bg-brand-card/90 border border-white/[0.06] text-xs">
-                    <div class="text-[10px] font-mono text-slate-400 uppercase">Architecture & Integrations</div>
-                    <div id="loomStackSpec" class="font-mono text-blue-400 text-xs mt-0.5">
-                      GoHighLevel • CloseBot • Twilio • Custom Webhook
+                    <div class="text-[10px] font-mono text-slate-400 uppercase">Architecture & Tech Utilized</div>
+                    <div id="videoStackSpec" class="font-mono text-blue-400 text-xs mt-0.5">
+                      GoHighLevel • Custom Code Action • Tag Matrix • Twilio SMS
                     </div>
                   </div>
 
                   <div class="p-3 rounded-lg bg-brand-card/90 border border-white/[0.06] text-xs">
-                    <div class="text-[10px] font-mono text-slate-400 uppercase">Measurable Client Outcome</div>
-                    <div id="loomOutcomeSpec" class="font-mono text-emerald-300 text-xs mt-0.5">
-                      +64% calendar booking rate, zero manual SDR outreach required
+                    <div class="text-[10px] font-mono text-slate-400 uppercase">Operational Breakthrough</div>
+                    <div id="videoOutcomeSpec" class="font-mono text-emerald-300 text-xs mt-0.5">
+                      Eliminated missed client consultations without rigid native scheduling constraints
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Direct Loom Link Out Button -->
-              <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                <a id="loomExternalLink" href="https://www.loom.com" target="_blank" rel="noopener noreferrer"
-                  class="text-xs font-semibold text-brand-indigo hover:text-indigo-400 flex items-center gap-1.5 transition-colors">
-                  <span>Open Video in Loom</span>
+              <!-- Quick Action & Local Path Info -->
+              <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+                <span class="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
+                  <i class="fa-solid fa-circle-check text-brand-emerald text-xs"></i>
+                  <span>Zero Manual Overhead</span>
+                </span>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=System%20Walkthrough%20Inquiry"
+                  target="_blank" rel="noopener noreferrer"
+                  class="text-xs font-semibold text-brand-indigo hover:text-indigo-400 flex items-center gap-1 transition-colors">
+                  <span>Build This For My Business</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
-
-                <span class="text-[10px] font-mono text-slate-500">Verified Client Implementation</span>
               </div>
 
             </div>
@@ -1881,65 +1895,91 @@
       }
     }
 
-    // Loom Showcase Data Dictionary
-    const loomData = {
-      'ghl-closebot': {
-        title: 'Autonomous Qualification & Booking via CloseBot and GoHighLevel',
-        desc: 'Deep-dive into the custom prompt hierarchy, tag synchronizations, and webhook fallbacks that enable CloseBot to qualify high-ticket leads and book them directly into calibrated calendar slots.',
-        duration: 'Duration: 4m 12s',
-        badge: 'GHL & CONVERSATIONAL AI',
-        trigger: 'ContactTagAdded: `bot-engage` → Twilio SMS Ingest',
-        stack: 'GoHighLevel • CloseBot • Twilio • Custom Webhook',
-        outcome: '+64% calendar booking rate, zero manual SDR outreach required',
-        status: 'Loom Walkthrough: GHL + CloseBot AI'
+    // Real Client Systems Walkthroughs (.mp4 Local Paths)
+    const videoData = {
+      'smart-reminders': {
+        title: 'Bypassing Platform Limits: Smart Appointment Reminders & Custom Notification Sequences',
+        desc: 'A client walkthrough demonstrating a custom appointment workflow built to bypass native platform limitations. Explore how the system filters tags, evaluates booking days, and uses custom code to execute precise reminder sequences.',
+        videoSrc: 'videos/smart-appointment-reminders.mp4',
+        badge: 'WORKFLOW AUTOMATION & CUSTOM CODE',
+        tag: 'Client Delivery',
+        logic: 'Dynamic day evaluation & custom JavaScript code execution',
+        stack: 'GoHighLevel • Custom Code Action • Tag Matrix • Twilio SMS',
+        outcome: 'Eliminated missed client consultations without rigid native scheduling constraints'
       },
-      'twilio-routing': {
-        title: 'Twilio Voice IVR & Smart Failover Inbound Call Routing',
-        desc: 'Architecture walkthrough of a resilient Twilio IVR studio flow with real-time whisper alerts, automated missed-call text back sequences, and sub-account rep assignment.',
-        duration: 'Duration: 5m 45s',
-        badge: 'TELEPHONY & INFRASTRUCTURE',
-        trigger: 'InboundCall: DID Webhook → IVR Studio Decision Matrix',
-        stack: 'Twilio Voice • GoHighLevel • Make.com • Webhooks',
-        outcome: '99.4% call resolution; sub-60 second lead capture on missed calls',
-        status: 'Loom Walkthrough: Twilio IVR & Call Flow'
+      'recurring-events': {
+        title: 'Never Reschedule Manually: Zero-Touch Recurring Event Automation with Date Math',
+        desc: 'A client walkthrough demonstrating a recurring event automation workflow built to handle monthly networking meetups. Explore how the system uses custom values, advanced if-else conditions, and custom code to calculate future event dates, manage reminders, and automate the recurring schedule without manual updates.',
+        videoSrc: 'videos/recurring-event-automation.mp4',
+        badge: 'ADVANCED DATE COMPUTATION & CRM',
+        tag: 'Event Architecture',
+        logic: 'Automated monthly date calculation using custom JavaScript math',
+        stack: 'GoHighLevel • Custom Values • Conditional If/Else • Custom Code',
+        outcome: 'Saved 100% of monthly administrative prep time for recurring community meetups'
       },
-      'make-middleware': {
-        title: 'High-Volume Make & n8n Idempotent Webhook Buffer',
-        desc: 'Technical review of custom API routing scenarios handling payload transformation, deduplication with Redis cache keys, and automated Slack operational incident dispatching.',
-        duration: 'Duration: 6m 18s',
-        badge: 'API & MIDDLEWARE',
-        trigger: 'Custom Webhook: OnPaymentSuccess → Idempotency Check',
-        stack: 'Make.com • n8n • Python Script • REST APIs • Stripe',
-        outcome: 'Processed 180,000+ flawless payload syncs with zero duplicate records',
-        status: 'Loom Walkthrough: Make / n8n Webhook Pipeline'
+      'voice-ai-tools': {
+        title: 'Deploying Production Voice AI: Custom Tool Invocation, Live Transfers & Failover Routing',
+        desc: 'Behind-the-scenes walkthrough breaking down a fully configured voice assistant. Learn how the setup integrates custom automation tools for messaging, extracts caller details, handles live call transfers, and manages flexible phone routing options for direct or backup availability.',
+        videoSrc: 'videos/voice-ai-tools-transfers.mp4',
+        badge: 'VOICE AI & TELEPHONY PIPELINES',
+        tag: 'Autonomous Agents',
+        logic: 'Real-time caller intent extraction, function calling, and dynamic phone failover',
+        stack: 'Voice AI Engine • Twilio Telephony • Webhook Tool Calls • Live Transfer Protocol',
+        outcome: 'Sub-60s autonomous inbound inquiry triage with automated warm transfer fallback'
+      },
+      'email-ai-parser': {
+        title: 'Flawless Inbound Email Parsing: Two-Workflow Webhook Architecture Powered by AI',
+        desc: 'A demonstration revealing how a multi-step setup cleanly captures and processes incoming messages. Discover how the system leverages artificial intelligence to extract data from email bodies, splits the process into two linked workflows using webhooks, and seamlessly creates updated contacts with custom fields.',
+        videoSrc: 'videos/inbound-email-ai-parser.mp4',
+        badge: 'AI DATA EXTRACTION & DUAL WEBHOOKS',
+        tag: 'Data Pipeline',
+        logic: 'Unstructured email text parsing via LLM, decoupled webhook ingestion, and CRM custom mapping',
+        stack: 'Inbound Email Hooks • LLM Parsing Engine • Multi-Tier Webhooks • CRM Custom Fields',
+        outcome: 'Zero manual data entry; 100% unstructured lead payloads parsed into clean records'
+      },
+      'crm-mcp-claude': {
+        title: 'Connecting Claude to Your CRM via MCP Server: Token Refresh & Infinite Loop Fixes',
+        desc: 'Step inside a client support session troubleshooting and finalizing the integration between a CRM and an MCP server. Discover how I diagnose a connection loop, refresh configuration tokens, remove conflicting installations, and successfully verify the setup so the AI can pull CRM data seamlessly.',
+        videoSrc: 'videos/crm-mcp-claude-troubleshooting.mp4',
+        badge: 'SYSTEM INTEGRATION & MCP DEBUGGING',
+        tag: 'Support & Fix',
+        logic: 'Auth token handshake validation, conflict cleanup, and live MCP JSON tool verification',
+        stack: 'Claude Desktop • Model Context Protocol (MCP) • CRM APIs • JSON Auth Configs',
+        outcome: 'Successfully restored AI context pipeline; Claude directly querying live CRM data'
       }
     };
 
-    // Loom Scenario Tab Switcher
-    function switchLoom(scenarioKey, btnElement) {
-      const data = loomData[scenarioKey];
+    // Video Switcher for Local HTML5 MP4 Player
+    function switchVideo(videoKey, btnElement) {
+      const data = videoData[videoKey];
       if (!data) return;
 
       // Update button styling
-      document.querySelectorAll('.loom-tab-btn').forEach(btn => {
+      document.querySelectorAll('.video-tab-btn').forEach(btn => {
         btn.classList.remove('bg-brand-indigo', 'text-white');
-        btn.classList.add('bg-brand-card', 'text-slate-300');
+        btn.classList.add('bg-brand-surface', 'text-slate-300');
       });
       btnElement.classList.add('bg-brand-indigo', 'text-white');
-      btnElement.classList.remove('bg-brand-card', 'text-slate-300');
+      btnElement.classList.remove('bg-brand-surface', 'text-slate-300');
 
-      // Update video player text
-      document.getElementById('loomVideoLabel').textContent = `Watch Walkthrough (${data.duration.split(': ')[1]})`;
-      document.getElementById('loomStatusBadge').textContent = data.status;
+      // Update video source and reload player
+      const videoPlayer = document.getElementById('walkthroughVideoPlayer');
+      const videoSource = document.getElementById('walkthroughVideoSource');
 
-      // Update metadata content
-      document.getElementById('loomPillarBadge').textContent = data.badge;
-      document.getElementById('loomTimeBadge').textContent = data.duration;
-      document.getElementById('loomTitle').textContent = data.title;
-      document.getElementById('loomDesc').textContent = data.desc;
-      document.getElementById('loomTriggerSpec').textContent = data.trigger;
-      document.getElementById('loomStackSpec').textContent = data.stack;
-      document.getElementById('loomOutcomeSpec').textContent = data.outcome;
+      videoSource.src = data.videoSrc;
+      videoPlayer.load();
+
+      // Update path label
+      document.getElementById('videoPathLabel').textContent = `Target: ${data.videoSrc}`;
+
+      // Update technical breakdown panel
+      document.getElementById('videoCategoryBadge').textContent = data.badge;
+      document.getElementById('videoTagBadge').textContent = data.tag;
+      document.getElementById('videoTitle').textContent = data.title;
+      document.getElementById('videoDesc').textContent = data.desc;
+      document.getElementById('videoLogicSpec').textContent = data.logic;
+      document.getElementById('videoStackSpec').textContent = data.stack;
+      document.getElementById('videoOutcomeSpec').textContent = data.outcome;
     }
 
     // Dynamic ROI Calculator
