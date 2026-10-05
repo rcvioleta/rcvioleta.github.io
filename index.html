@@ -227,6 +227,9 @@
 
       <!-- Desktop Navigation Links (Clean, No Number Clutter) -->
       <nav class="hidden lg:flex items-center space-x-1 text-sm font-medium text-slate-300">
+        <a href="#about-me" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/[0.06] transition-all">
+          About
+        </a>
         <a href="#core-capabilities" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/[0.06] transition-all">
           Capabilities
         </a>
@@ -283,6 +286,10 @@
           </a>
         </div>
 
+        <a href="#about-me" onclick="toggleMobileMenu()"
+          class="py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">
+          About Me
+        </a>
         <a href="#core-capabilities" onclick="toggleMobileMenu()"
           class="py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">
           Capabilities
@@ -334,7 +341,7 @@
             class="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border-brand-border text-slate-300 text-xs font-mono mb-6">
             <span class="flex items-center gap-1.5 text-brand-emerald">
               <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
-              <span>GHL ECOSYSTEM</span>
+              <span>GHL LEVEL 2 SPECIALIST</span>
             </span>
             <span class="text-slate-600">•</span>
             <span class="text-brand-violet flex items-center gap-1"><i class="fa-solid fa-robot text-[10px]"></i>
@@ -360,17 +367,18 @@
 
           <!-- Action Hub -->
           <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a href="#loom-walkthroughs"
+            <a href="#about-me"
               class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-indigo to-blue-600 hover:opacity-95 text-white font-medium text-sm shadow-xl shadow-brand-indigo/25 flex items-center gap-2 transition-all">
-              <i class="fa-solid fa-circle-play text-white"></i>
+              <i class="fa-solid fa-user-astronaut text-white text-xs"></i>
+              <span>About My Track Record</span>
+            </a>
+            <a href="#loom-walkthroughs"
+              class="px-6 py-3 rounded-xl glass-panel glass-panel-hover text-slate-200 font-medium text-sm flex items-center gap-2">
+              <i class="fa-solid fa-circle-play text-xs text-brand-emerald"></i>
               <span>Watch Loom Architecture Demos</span>
             </a>
-            <a href="#live-builds"
-              class="px-6 py-3 rounded-xl glass-panel glass-panel-hover text-slate-200 font-medium text-sm flex items-center gap-2">
-              <i class="fa-solid fa-network-wired text-xs text-brand-emerald"></i>
-              <span>Inspect Live Builds & Funnels</span>
-            </a>
-            <a href="#dispatch-hub"
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Systems%20Architecture%20Inquiry"
+              target="_blank" rel="noopener noreferrer"
               class="px-6 py-3 rounded-xl border border-brand-emerald/40 bg-brand-emerald/10 hover:bg-brand-emerald/20 text-brand-emerald font-mono font-medium text-sm flex items-center gap-2 transition-all">
               <i class="fa-brands fa-google text-xs"></i>
               <span>Contact Directly via Gmail</span>
@@ -411,6 +419,282 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- NEW: Comprehensive About Me Section -->
+    <section id="about-me" class="py-20 border-t border-white/[0.06] relative bg-brand-surface/50">
+      <!-- Ambient Glow -->
+      <div class="absolute top-1/3 -right-24 w-96 h-96 glow-radial-emerald pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Section Title & Hook -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span
+              class="text-xs font-mono font-bold tracking-wider uppercase text-brand-emerald flex items-center gap-1.5">
+              <i class="fa-solid fa-address-card text-xs"></i>
+              <span>ENGINEER, ARCHITECT & CERTIFIED SPECIALIST</span>
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-1.5">
+              Behind the Architecture: Engineering Meets Strategic Execution
+            </h2>
+            <p class="text-sm text-slate-400 mt-2 max-w-3xl leading-relaxed">
+              Full-Stack Web Developer and GoHighLevel Level 2 Specialist with a strong command of modern software
+              paradigms, building impactful digital solutions that bridge frontend user experiences with rock-solid
+              operational workflows.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+            <span
+              class="px-3 py-1.5 rounded-lg bg-brand-card border border-white/10 text-emerald-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-award text-amber-400 text-xs"></i> Highest-Rated L2 Agent
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          <!-- Left Column (4 cols): Profile Card & Real Credential Telemetry -->
+          <div class="lg:col-span-4 space-y-6">
+            <div class="glass-panel rounded-2xl p-6 border-brand-indigo/30 relative overflow-hidden">
+              <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-white/10 aspect-square group">
+                <!-- Profile Image with Local Fallback and Placeholder -->
+                <img src="assets/images/profile-picture.png"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';"
+                  alt="Rogene Violeta - Full-Stack Developer & GHL Level 2 Specialist"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent"></div>
+
+                <!-- Overlay Badge -->
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-brand-surface/90 backdrop-blur-md border border-brand-emerald/40 text-[11px] font-mono font-medium text-emerald-400 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Level 2 Specialist</span>
+                  </span>
+                  <span class="text-[10px] font-mono text-slate-400 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
+                    Verified Pro
+                  </span>
+                </div>
+              </div>
+
+              <!-- Identity & Fast Info -->
+              <div class="mt-5 text-center sm:text-left">
+                <h3 class="text-xl font-bold text-white tracking-tight">Rogene Violeta</h3>
+                <p class="text-xs font-mono text-brand-indigo font-semibold mt-0.5">
+                  Full-Stack Dev & GHL Level 2 Architect
+                </p>
+                <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                  Specialized in intuitive UI/UX design, custom HTML/CSS web platforms, multi-channel GHL workflows, and
+                  autonomous Voice AI systems that eliminate operational bottlenecks.
+                </p>
+              </div>
+
+              <!-- Quick Verification Checklist -->
+              <div class="mt-5 pt-4 border-t border-white/[0.08] space-y-2 text-xs font-mono text-slate-300">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-trophy text-amber-400 text-[11px]"></i> Monthly Recognition
+                  </span>
+                  <span class="text-emerald-400 font-semibold">#1 Rated L2 Agent</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-users text-blue-400 text-[11px]"></i> Mentorship Impact
+                  </span>
+                  <span class="text-white font-semibold">40% Team Promotion Rate</span>
+                </div>
+                <!--<div class="flex items-center justify-between">
+                  <span class="text-slate-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-code text-brand-violet text-[11px]"></i> Backend Standard
+                  </span>
+                  <span class="text-slate-200">OOP Repository Pattern</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-credit-card text-emerald-400 text-[11px]"></i> Voice AI Specialization
+                  </span>
+                  <span class="text-emerald-300">Payment Collection AI</span>
+                </div>-->
+              </div>
+
+              <!-- Quick Email CTA in Profile Card -->
+              <div class="mt-6 pt-4 border-t border-white/[0.08]">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Consultation%20Inquiry%20via%20About%20Section"
+                  target="_blank" rel="noopener noreferrer"
+                  class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-indigo to-blue-600 hover:opacity-95 text-white font-bold text-xs font-mono flex items-center justify-center gap-2 shadow-lg shadow-brand-indigo/20 transition-all transform active:scale-95">
+                  <i class="fa-brands fa-google text-xs"></i>
+                  <span>Email Me via Gmail →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (8 cols): The 4 Operational Experience Pillars -->
+          <div class="lg:col-span-8 space-y-6">
+
+            <!-- Deep-Dive Card 1: GHL Level 2 Specialist & Voice AI -->
+            <div class="glass-panel p-6 sm:p-7 rounded-2xl border-l-4 border-l-brand-emerald relative overflow-hidden">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-brand-emerald text-sm">
+                  <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-bold text-white">GoHighLevel Level 2 Specialization & Autonomous Voice AI
+                  </h4>
+                  <p class="text-xs text-slate-400">Multi-channel logic, CRM architecture, and conversational agents</p>
+                </div>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                I engineer advanced multi-channel workflow automations and complex logic systems beyond native tool
+                limitations, directly accelerating revenue generation (such as empowering pre-launch businesses to
+                secure upfront cash flow before going live).
+              </p>
+
+              <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                  <div class="font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-robot text-xs"></i> Custom Voice AI & Chatbots
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-normal">
+                    Integrated solutions across GHL native AI, Thinkrr AI, Assistable, and CloseBot—including custom
+                    voice systems that autonomously collect caller payments and trigger instant CRM attribution.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                  <div class="font-mono text-blue-400 font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-chalkboard-user text-xs"></i> High-Touch Escalations & Loom Breakdowns
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-normal">
+                    Resolved complex Level 1 and Level 2 escalations while earning recognition as the
+                    <strong>highest-rated Level 2 support agent of the month</strong>, delivering Zoom consultations and
+                    bespoke Loom architecture recordings to demystify complex MCP servers and custom webhooks.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Deep-Dive Card 2: Full-Stack Web Development & Clean UI/UX -->
+            <div class="glass-panel p-6 sm:p-7 rounded-2xl border-l-4 border-l-brand-indigo relative overflow-hidden">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-9 h-9 rounded-lg bg-brand-indigo/20 border border-brand-indigo/30 flex items-center justify-center text-brand-indigo text-sm">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-bold text-white">Full-Stack Frontend & Backend Engineering</h4>
+                  <p class="text-xs text-slate-400">Modern interfaces, scalable frameworks, and data optimization</p>
+                </div>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Led frontend development with an uncompromising focus on UI/UX, crafting accessible, responsive, and
+                high-converting user interfaces using HTML5, CSS3, JavaScript, and Vue.js. On the server side, I build
+                scalable backend architectures using the Laravel framework, Express.js, and Python.
+              </p>
+
+              <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                  <div class="font-mono text-indigo-300 font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-layer-group text-xs"></i> Advanced OOP & Repository Pattern
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-normal">
+                    Utilized OOP principles and the repository pattern to keep backends maintainable, decoupling
+                    business
+                    logic to reduce software bugs and accelerate deployment sprints.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                  <div class="font-mono text-purple-400 font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-database text-xs"></i> GraphQL & SQL Data Optimization
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-normal">
+                    Engineered custom REST and GraphQL query layers with relational MySQL databases, optimizing data
+                    retrieval to ensure instantaneous page rendering and zero-latency user journeys.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Deep-Dive Card 3: Leadership, Honey/PayPal Systems & Team Mentorship -->
+            <div class="glass-panel p-6 sm:p-7 rounded-2xl border-l-4 border-l-amber-400 relative overflow-hidden">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-sm">
+                  <i class="fa-solid fa-people-roof"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-bold text-white">Engineering Leadership, Operations & Mentorship</h4>
+                  <p class="text-xs text-slate-400">Process streamlining, cross-functional roadmaps, and career
+                    advancement</p>
+                </div>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Drove revenue growth through the strategic integration and maintenance of Honey and PayPal products,
+                resolving critical edge-case bugs and optimizing performance under heavy transactional volume.
+                Streamlined
+                internal workflows and automated repetitive manual tasks to increase overall team velocity.
+              </p>
+
+              <div
+                class="mt-4 p-4 rounded-xl bg-brand-surface/90 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="space-y-0.5">
+                  <div
+                    class="text-xs font-mono font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-chart-line text-xs"></i> Proven Mentorship Impact
+                  </div>
+                  <p class="text-xs text-slate-300">
+                    Achieved a <strong>40% promotion rate</strong> for mentored engineers and specialists through
+                    structured
+                    knowledge transfers, code reviews, and workflow rollouts.
+                  </p>
+                </div>
+                <a href="#testimonials"
+                  class="text-xs font-mono text-brand-emerald hover:text-emerald-300 whitespace-nowrap flex items-center gap-1 transition-colors">
+                  <span>Read Client Ratings</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Call to Action Banner inside About Section -->
+            <div
+              class="w-full max-w-5xl mx-auto glass-panel p-6 sm:p-8 rounded-2xl border border-brand-indigo/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+
+              <!-- Left Text Area -->
+              <div class="flex-1 max-w-2xl space-y-1.5">
+                <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  Have a complex technical hurdle or GHL deployment?
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  I diagnose architecture bottlenecks, configure custom webhooks and AI agents, and manage builds from
+                  start to finish.
+                </p>
+              </div>
+
+              <!-- Right Button -->
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rcvioleta13@gmail.com&su=Systems%20Architecture%20Inquiry"
+                target="_blank" rel="noopener noreferrer"
+                class="shrink-0 px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-indigo to-brand-cobalt hover:from-indigo-500 hover:to-blue-500 text-white text-sm font-semibold whitespace-nowrap inline-flex items-center justify-center gap-3 shadow-lg shadow-brand-indigo/25 transition-all transform active:scale-95">
+                <i class="fa-brands fa-google text-sm"></i>
+                <span>Connect With Me</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
     </section>
 
@@ -1485,10 +1769,10 @@
                   class="text-[10px] font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold uppercase tracking-wider">
                   Functional Medicine & Wellness
                 </span>
-                <!--<span
+                <span
                   class="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded-md border border-emerald-500/20">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Live Production
-                </span>-->
+                </span>
               </div>
 
               <!-- Media Preview Trigger Banner with Local Asset Paths -->
@@ -1567,10 +1851,10 @@
                   class="text-[10px] font-mono px-2.5 py-1 rounded bg-brand-indigo/20 text-indigo-300 border border-brand-indigo/30 font-bold uppercase tracking-wider">
                   Interactive Custom 404 Page
                 </span>
-                <!--<span
+                <span
                   class="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded-md border border-emerald-500/20">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Live Production
-                </span>-->
+                </span>
               </div>
 
               <!-- Media Preview Trigger Banner with Local Asset Paths -->
@@ -1647,10 +1931,10 @@
                   class="text-[10px] font-mono px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold uppercase tracking-wider">
                   Financial Services & Consulting
                 </span>
-                <!--<span
+                <span
                   class="flex items-center gap-1.5 text-[11px] font-mono text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded-md border border-amber-500/20">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> In Development
-                </span>-->
+                </span>
               </div>
 
               <!-- Media Preview Trigger Banner with Local Asset Paths -->
@@ -2043,6 +2327,7 @@
             Navigation
           </h4>
           <div class="grid grid-cols-2 gap-y-2.5 gap-x-4 text-xs sm:text-sm">
+            <a href="#about-me" class="text-slate-400 hover:text-white transition-colors">About Me</a>
             <a href="#core-capabilities" class="text-slate-400 hover:text-white transition-colors">Capabilities</a>
             <a href="#tech-matrix" class="text-slate-400 hover:text-white transition-colors">Tech Stack</a>
             <a href="#loom-walkthroughs" class="text-slate-400 hover:text-white transition-colors">Loom Demos</a>
