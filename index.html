@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
   <meta charset="UTF-8">
@@ -63,6 +63,14 @@
   </script>
 
   <style>
+    html,
+    body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      position: relative;
+    }
+
     body {
       background-color: #070B12;
       color: #E2E8F0;
@@ -326,7 +334,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="w-full max-w-full overflow-x-hidden relative">
     <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden">
       <!-- Ambient Glows -->
       <div
@@ -1442,7 +1450,7 @@
           <div id="testimonialSliderTrack" class="testimonial-track py-2">
 
             <!-- Card 1: Truman Hooker -->
-            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+            <div class="w-[calc(100vw-2rem)] sm:w-[500px] lg:w-[540px] max-w-full flex-shrink-0">
               <div
                 class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
                 <div>
@@ -1484,7 +1492,7 @@
             </div>
 
             <!-- Card 2: Heather Sewczak -->
-            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+            <div class="w-[calc(100vw-2rem)] sm:w-[500px] lg:w-[540px] max-w-full flex-shrink-0">
               <div
                 class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
                 <div>
@@ -1523,7 +1531,7 @@
             </div>
 
             <!-- Card 3: Tara Kendrick -->
-            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+            <div class="w-[calc(100vw-2rem)] sm:w-[500px] lg:w-[540px] max-w-full flex-shrink-0">
               <div
                 class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
                 <div>
@@ -1562,7 +1570,7 @@
             </div>
 
             <!-- Card 4: Andrew Defee -->
-            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+            <div class="w-[calc(100vw-2rem)] sm:w-[500px] lg:w-[540px] max-w-full flex-shrink-0">
               <div
                 class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
                 <div>
@@ -1601,7 +1609,7 @@
             </div>
 
             <!-- Card 5: Dr. Brian -->
-            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+            <div class="w-[calc(100vw-2rem)] sm:w-[500px] lg:w-[540px] max-w-full flex-shrink-0">
               <div
                 class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
                 <div>
@@ -1639,7 +1647,7 @@
             </div>
 
             <!-- Card 6: Maria Murray -->
-            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+            <div class="w-[calc(100vw-2rem)] sm:w-[500px] lg:w-[540px] max-w-full flex-shrink-0">
               <div
                 class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
                 <div>
@@ -1677,7 +1685,7 @@
             </div>
 
             <!-- Card 7: Erez Avramov -->
-            <div class="w-full sm:w-[500px] lg:w-[540px] flex-shrink-0">
+            <div class="w-[calc(100vw-2rem)] sm:w-[500px] lg:w-[540px] max-w-full flex-shrink-0">
               <div
                 class="bg-[#F2F7F2] text-[#1E293B] rounded-2xl p-6 border-2 border-emerald-500/30 shadow-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:-translate-y-1 h-full flex flex-col justify-between">
                 <div>
